@@ -1,0 +1,51 @@
+{
+  "name": "stackblitz-starters-ngjmbf",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "11.11.1",
+    "@emotion/styled": "11.11.0",
+    "@mui/material": "5.14.3",
+    "@types/react": "18.2.18",
+    "@types/react-dom": "18.2.7",
+    "babel-plugin-styled-components": "2.1.4",
+    "framer-motion": "^10.16.1",
+    "react": "18.2.0",
+    "react-awesome-shapes": "^0.1.12",
+    "react-dom": "18.2.0",
+    "react-intersection-observer": "^9.5.2",
+    "react-router-dom": "^6.15.0",
+    "react-scroll": "^1.8.9",
+    "react-scroll-into-view": "^2.0.2",
+    "react-scroll-parallax": "^3.4.2",
+    "react-simple-typewriter": "^5.0.1",
+    "react-social-icons": "^5.15.0",
+    "react-spring": "^9.7.2",
+    "react-tsparticles": "^2.11.0",
+    "react-typing-effect": "^2.0.5",
+    "react-typist": "2.0.5",
+    "styled-components": "6.0.6"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "@wixc3/react-board": "^2.2.1",
+    "react-scripts": "latest"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

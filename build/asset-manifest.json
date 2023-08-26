@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.js": "/static/js/main.e043db3d.js",
+    "static/media/IMG_0178__1_-removebg-preview.jpg": "/static/media/IMG_0178__1_-removebg-preview.61c617577713475e05d5.jpg",
+    "index.html": "/index.html",
+    "main.e043db3d.js.map": "/static/js/main.e043db3d.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.e043db3d.js"
+  ]
+}

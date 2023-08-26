@@ -1,9 +1,6 @@
 import React , {useState,useEffect}from 'react';
 import { Button } from '@mui/material';
-import Typist from 'react-typist';
-import Particles from 'react-tsparticles';
-import ScrollIntoView from 'react-scroll-into-view';
-import profilePic from './IMG_0178__1_-removebg-preview.jpg';
+
 import About from './About';
 import Skills from './Skills';
 import CardsList from"./CardsList";
@@ -15,8 +12,6 @@ import Contact from './Contact';
 import Experience from './Experience';
 import { useViewportScroll, useTransform, m as motion,useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import ReactTypingEffect from 'react-typing-effect';
-import {Typewriter} from "react-simple-typewriter"
 import { GradientBackground, Spacer,TextMod } from './StyledComp';
 import { SlideInLeft,AnimatedText, SlideInRight, Squeeze, Pulse, DivAppear, SlideCover } from './Animations';
 

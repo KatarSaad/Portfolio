@@ -380,7 +380,7 @@ const StyledLink = styled(Link)`
 const SocialMediaContainer = styled.div`
   display: flex;
   
-  margin-top:200px;
+  margin-top:50px;
   padding-left:30%;
   flex-direction: column;
   width: 100%; // Set a fixed width temporarily to ensure logos fit inside

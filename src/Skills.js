@@ -3,7 +3,6 @@ import styled ,  {keyframes}from 'styled-components';
 import { Card, CardHeader, CardContent, Typography, LinearProgress } from '@mui/material';
 import Level from "./Level"
 import SkillCard  from './SkillCard';
-import chevronUp from "./Arrows/chevron-up-sm.png"
 import images from './images'; // adjust the path if needed
 import architect from "./images/architechture.png"
 import csharp from "./images/c-sharp.png"
@@ -18,7 +17,6 @@ import ui from './images/ux-interface.png'
 import phone from "./images/smartphone (1).png"
 import creativity from "./images/creativity.png"
 
-import chevronDown from "./Arrows/chevron-down-sm.png"
 import { SlideInLeftDelay } from './Animations';
 const upDownAnimation = keyframes`
   0% { transform: translateY(0); }
@@ -249,11 +247,9 @@ const Skills = () => {
                 ))}
             </ReverseImageList>
         </div>
-    <TopImage src={chevronUp} alt="Your Alt Text Here" />
     <SkillsContainer>
       {technicalSkillsData.map(category => <SkillCard image={category.image} key={category.title} category={category} />)}
     </SkillsContainer>
-    <BottomImage src={chevronDown} alt="Your Alt Text Here" />
 
   </Wrapper>
   );

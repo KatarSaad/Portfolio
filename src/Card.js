@@ -3,6 +3,10 @@ import styled from 'styled-components';
 import ProjectPage from "./ProjectPage";
 import { useNavigate } from 'react-router-dom';
 import { FadeCover } from './Animations';
+import git from "./Brands/github.png"
+import { GlowingButton2, SocialMediaLogo } from './ProjectPage';
+import { SkillTag,TextMod, } from './StyledComp';
+import { GlowingLine,LineTextContainer } from './App';
 
 
 // SCSS variables to JS constants
@@ -10,9 +14,9 @@ const blue = "#341cac";
 
 // Styled components
 const CardContainer = styled.article`
-  width: 600px !important;
+  width: 700px !important;
   
-  min-width: 600px;
+  min-width: 700px;
   display: block;
   margin: 30px;
   background: rgb(0, 255, 171,0.5);
@@ -30,25 +34,24 @@ const CardContainer = styled.article`
 `;
 const TagsContainer = styled.div`
   display: flex;
+  margin-top:20px;
+  padding-left:10px;
+  height:70px;
   flex-wrap: wrap; // If tags exceed the container width, they will wrap to the next line
-  gap: 10px; // Spacing between tags
+  margin-bottom:px;
+  
 `;
 
-const SkillTag = styled.span`
-  background-color: #e1e1e1;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 1rem;
-  font-family: "Verdana, sans-serif";
-  font-weight: normal;
-  color: #333;
-`;
 const VisitContainer = styled.div`
+  position: absolute; // added this line
+  bottom: 10px;  // added this line: distance from the top edge of CardHeader
+  right: 10px;  // added this line: distance from the right edge of CardHeader
   display: flex;
-  align-items: center; // Vertically center-align the logos and text
+  align-items: center; 
   gap: 10px;
-  margin-top: 20px; // Some spacing from the tags above
+  z-index: 10;  // added this line to ensure it's above the CardHeader content
 `;
+
 
 const Logo = styled.img`
   width: 20px;
@@ -56,6 +59,7 @@ const Logo = styled.img`
 `;
 
 const CardHeader = styled.div`
+  position: relative;  // added this line
   height: 350px;
   width: 100%;
   background-size: cover;
@@ -63,11 +67,20 @@ const CardHeader = styled.div`
   color: #fff;
 `;
 
+
 const CardHeaderTitle = styled.h1`
   text-transform: uppercase;
   margin: 0;
-  padding: 20px 0; // Added some vertical padding for space
+  padding: 20px 0;  // Added some vertical padding for space
+  white-space: normal;  // Ensures text wraps normally
+  overflow-wrap: break-word;  // Breaks long words if they overflow container
 `;
+
+const SkillsWrapper = styled.div`
+  display: flex;
+  align-items: center;  // Vertically center-align the text and tags
+`;
+
 
 const CardBody = styled.div`
   display: flex;
@@ -75,7 +88,7 @@ const CardBody = styled.div`
   
   flex-direction: column;
   background-color: transparent;
-  padding: 20px; // Consistent padding around the body for spacing
+  padding: 0px; // Consistent padding around the body for spacing
 `;
 
 const DateText = styled.span`
@@ -86,15 +99,19 @@ const DateText = styled.span`
 `;
 
 const BodyContent = styled.p`
-padding-bottom: 40px;
+padding-bottom: 0px;
+margin-top:0px;
+padding-left:10px;
+
+padding-bottom: 0px;
 font-size: 22px;
-min-height:350px;
-max-height: 350px;
+min-height:200px;
+max-height: 250px;
 line-height: 1.6;
 white-space: normal; // Ensures that text behaves like a typical paragraph
 overflow-wrap: break-word; // Similar to word-wrap, but more comprehensive
 overflow-y: auto; // Makes the content vertically scrollable if it exceeds max-height
-margin-bottom: 1rem; // Provide spacing to ensure it doesn't overlap with the next element
+margin-bottom: 0; // Provide spacing to ensure it doesn't overlap with the next element
 `;
 
 const ButtonPrimary = styled.button`
@@ -102,14 +119,36 @@ const ButtonPrimary = styled.button`
   box-shadow: none;
   font-family: inherit;
   background-color: transparent;
-  color: ${blue};
-  font-size: 15px;
+  color: #E8FFCE;
+  font-size: 25px;
   transition: .25s;
   margin-top: auto; // Push the button to the bottom if there's space
 `;
+export const ButtonWrapper = styled.div`
+  position: absolute;  // Use absolute positioning
+  bottom: 10px;  // Push the button 10px from the bottom of CardBody
+  left: 50%;  // Center the button horizontally
+  transform: translateX(-50%);  // This ensures the centering is perfect, translating half the width of the button to the left
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    z-index: 10;  // added this line to ensure it's above the CardHeader content
+
+  width: auto;  // Change this from 100% to auto, so the width is based on the content
+`;
+
+
+
+
+
+// Usage example:
+// <ButtonWrapper>
+//   <GlowingButton2>Your Button Text</GlowingButton2>
+// </ButtonWrapper>
+
 
 // Main component
-const Card = ({ image, title, text, project }) => {
+const Card = ({ image, title, text, project,skills,technologies }) => {
   const [showProject, setShowProject] = useState(false);  // Create a state
   const navigate = useNavigate();
 
@@ -123,32 +162,79 @@ const Card = ({ image, title, text, project }) => {
  
   return(
  
-  <CardContainer>
-    <FadeCover>   
-  <CardHeader image={image}>
-    <CardHeaderTitle>{title}</CardHeaderTitle>
-  </CardHeader>
-  <CardBody>
-    <BodyContent>{text}</BodyContent>
-    <TagsContainer>
-      <SkillTag>React</SkillTag>
-      <SkillTag>Redux</SkillTag>
-      <SkillTag>Styled-Components</SkillTag>
-      {/* ... add other tags here */}
-    </TagsContainer>
-    <VisitContainer>
-      <span>Visit:</span>
-      <Logo src="path_to_website_logo.png" alt="Website" />
-      <Logo src="path_to_github_logo.png" alt="GitHub" />
-      <Logo src="path_to_demo_logo.png" alt="Demo" />
-    </VisitContainer>
-    <ButtonPrimary onClick={handleReadMoreClick}>
-        <i></i> Read More
-      </ButtonPrimary>
-  </CardBody>
-  </FadeCover>
+    <CardContainer>
+    <FadeCover>
+    <CardHeader image={image}>
+        <VisitContainer>
+          {/* (repeated 3 times for illustrative purposes) */}
+          <GlowingButton2 bgColor="#C3EDC0" bgColorChange="E8FFCE" TextColor="#E8FFCE" hoverTextColor="00DFA2">
+            <SocialMediaLogo src={git} alt="GitHub Logo" />
+          </GlowingButton2>
+           <GlowingButton2 bgColor="#C3EDC0" bgColorChange="E8FFCE" TextColor="#E8FFCE" hoverTextColor="00DFA2">
+            <SocialMediaLogo src={git} alt="GitHub Logo" />
+          </GlowingButton2>
+           <GlowingButton2 bgColor="#C3EDC0" bgColorChange="E8FFCE" TextColor="#E8FFCE" hoverTextColor="00DFA2">
+            <SocialMediaLogo src={git} alt="GitHub Logo" />
+          </GlowingButton2>
+        </VisitContainer>
+        <CardHeaderTitle>{title}</CardHeaderTitle>
+      </CardHeader>
+      <CardBody>
 
-</CardContainer>
+     
+
+        {/* 2. Title */}
+
+        {/* 3. Date */}
+        <TextMod size="1rem" color="grey">{new Date().toLocaleDateString()}</TextMod> 
+
+        {/* 4. GlowingLine */}
+        <GlowingLine width="95%" height="2px" />
+
+        {/* 5. Description */}
+        <BodyContent>{text}</BodyContent>
+
+        {/* 6. GlowingLine */}
+        <LineTextContainer>
+      skills
+    </LineTextContainer>
+      
+          {/* Skills */}
+          <SkillsWrapper>
+            <TagsContainer>
+              {skills?.map(skill => (
+                <TextMod key={skill} size="13px" font="Roboto slab" weight="normal">
+                  <SkillTag>{skill}</SkillTag>
+                </TextMod>
+              ))}
+            </TagsContainer>
+          </SkillsWrapper>
+
+          <LineTextContainer>
+      Technologies
+    </LineTextContainer>
+
+          {/* Technologies */}
+          <SkillsWrapper>
+            <TagsContainer>
+              {technologies?.map(tech => (
+                <TextMod key={tech} size="15px" font="Roboto slab" weight="normal">
+                  <SkillTag>{tech}</SkillTag>
+                </TextMod>
+              ))}
+            </TagsContainer>
+          </SkillsWrapper>
+          
+        {/* 8. Read More Button */}
+      
+      </CardBody>
+    </FadeCover>
+    <ButtonWrapper>
+          <GlowingButton2 onClick={handleReadMoreClick} bgColor="#C3EDC0" bgColorChange="E8FFCE" TextColor="#E8FFCE" hoverTextColor="00DFA2">
+            Read More 
+          </GlowingButton2>
+        </ButtonWrapper>
+  </CardContainer>
   );
   };
 

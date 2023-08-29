@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { createContext, useCallback, useState,useContext } from 'react';
 import OldPortfolio from './OldPortfolio'
 import styled from 'styled-components';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import  App from './App';
+const ScrollContext = createContext(null);
+
+export const useScroll = () => {
+  return useContext(ScrollContext);
+};
 
 const MainContainer = styled.div`
   display: flex;
@@ -55,9 +60,9 @@ const ContentComponent = () => {
   const section4Ref = React.useRef(null);
   
   const [scrollPercentage, setScrollPercentage] = useState(0);
-  const scrollToRef = (ref) => {
-    ref.current.scrollIntoView({ behavior: 'smooth' });
- }
+
+    
+
 
 
   const handleScroll = (e) => {
@@ -72,14 +77,16 @@ const ContentComponent = () => {
   const backgroundColor = `rgb(${red}, ${green}, ${blue})`;
 
   return (
+
     <MainContainer>
-    <App backgroundColor={backgroundColor} scrollPercentage={scrollPercentage} scrollToRef={scrollToRef} ref1={section1Ref} ref2={section2Ref} ref3={section3Ref} ref4={section4Ref} />
+    <App backgroundColor={backgroundColor} scrollPercentage={scrollPercentage} ref1={section1Ref} ref2={section2Ref} ref3={section3Ref} ref4={section4Ref} />
     <SidebarWrapper scrollPercentage={scrollPercentage}>
     </SidebarWrapper>
     <Content onScroll={handleScroll}>
       <OldPortfolio ref1={section1Ref} ref2={section2Ref} ref3={section3Ref} ref4={section4Ref}/>
     </Content>
   </MainContainer>
+
   );
 };
 

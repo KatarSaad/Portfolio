@@ -18,6 +18,24 @@ export const SlideInLeft = ({ children }) => {
 
     return <motion.div ref={ref} animate={controls} initial={{ x: -100, opacity: 0 } }  >{children}</motion.div>;
 }
+export const SlideInLeftDelay = ({ children, delayIncrement = 0.2 }) => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+      if (inView) {
+          controls.start({ x: 0, opacity: 1, transition: { delay: delayIncrement } });
+      } else {
+          controls.start({ x: -100, opacity: 0 });
+      }
+  }, [controls, inView, delayIncrement]);
+
+  return (
+      <motion.div ref={ref} animate={controls} initial={{ x: -100, opacity: 0 }}>
+          {children}
+      </motion.div>
+  );
+}
 const Cover1 = styled(motion.div)`
   background-color: #00DFA2;  // Just a random color for demonstration. Change as needed.
   width: 100%;
@@ -26,6 +44,33 @@ const Cover1 = styled(motion.div)`
   top: 0;
   left: 0;
 `;
+export const SlideCoverRight = ({ children }) => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+      if (inView) {
+          controls.start({ scaleX: 0, originX: 'left', transition: { duration: 1 } });  // Slide and shrink from left to right
+      } else {
+          controls.start({ scaleX: 1, originX: 'left', transition: { duration: 1 } });  // Slide back when out of view
+      }
+  }, [controls, inView]);
+
+  return (
+    <div style={{ position: 'relative', overflow: 'hidden' }} ref={ref}>
+      <AnimatePresence>
+        {inView && (
+          <Cover
+            initial={{ scaleX: 1, originX: 'left' }}
+            animate={controls}
+            exit={{ scaleX: 1, originX: 'right', transition: { duration: 3 } }}  // Slower slide to right on exit
+          />
+        )}
+      </AnimatePresence>
+      {children}
+    </div>
+  );
+}
 
 export const SlideCover = ({ children }) => {
     const controls = useAnimation();
@@ -43,7 +88,7 @@ export const SlideCover = ({ children }) => {
       <div style={{ position: 'relative', overflow: 'hidden' }} ref={ref}>
         <AnimatePresence>
           {inView && (
-            <Cover
+            <Cover1
               initial={{ scaleX: 1, originX: 'right' }}
               animate={controls}
               exit={{ scaleX: 1, originX: 'left', transition: { duration: 3000 } }}  // Slower slide to left on exit
@@ -70,7 +115,7 @@ export const FadeCover = ({ children }) => {
     <div style={{ position: 'relative', overflow: 'hidden' }} ref={ref}>
       <AnimatePresence>
         {inView && (
-          <Cover
+          <Cover2
             initial={{ opacity: 1 }}
             animate={controls}
             exit={{ opacity: 1, transition: { duration: 1 } }}  // Fade in slowly on exit
@@ -225,10 +270,21 @@ export const Squeeze = ({ children }) => {
 const Text = styled(motion.div)`
   font-size: 24px;
   position: relative;
-  z-index: 2;
+  z-index: 9;
 `;
 
 const Cover = styled(motion.div)`
+  position: absolute;
+  top: 0;
+  left: 0;
+ 
+   height: 70%;
+  width: 80%;
+  background-color: #00DFA2;
+  transform-origin: left;
+  z-index: 0;
+`;
+const Cover2 = styled(motion.div)`
   position: absolute;
   top: 0;
   left: 0;
@@ -236,9 +292,8 @@ const Cover = styled(motion.div)`
   width: 100%;
   background-color: #00DFA2;
   transform-origin: left;
-  z-index: -1;
+  z-index: 0;
 `;
-
 const Wrapper = styled.div`
   position: relative;
   display: inline-block;

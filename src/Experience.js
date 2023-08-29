@@ -1,5 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import  {SlideCoverRight}  from "./Animations"
+
 
 const slideInRight = keyframes`
   0% {
@@ -124,14 +126,19 @@ const Card = styled.div`
 const Experience = () => {
   const experiences = [
     {
-      title: "Software Engineer at Google",
-      duration: "Jun 2022 - Present",
-      description: "Worked on developing new features and maintaining Google Search."
+      title: "Internship at ATI (Tunisian Internet Agency)      ",
+      duration: "Feburary 2023 - Juin 2023 ",
+      description: "Architected and implemented an advanced Intranet solution, enhancing productivity and achieving time savings.The system features a chat service, bug/task management system, and intuitive interfaces for blogs, articles, and news.Demonstrated proficiency in data extraction & reporting from Sage ERP."
     },
     {
-      title: "Software Engineer Intern at Microsoft",
-      duration: "May 2021 - Aug 2021",
-      description: "Worked on the Microsoft Teams team, developing new features a44sdqffff fffffffff  fffff fffff fffff ffq fqsfd fds qfffff fffffffffff  fffffffff q sdfqsdf qsdf qsdf qsdf qsdf sqdf f dsnd fixin bugs."
+      title: "Software Engineering Intern at 3Dwave ",
+      duration: "June 2022 - August 2022",
+      description: "Developed an AI application with Flutter & Desktop versions targeting Autism and anxiety in children."
+    },
+    {
+      title: "Software Engineering Intern at the University Hospital of Farhat Hached ",
+      duration: "February 2022 - May 2022",
+      description: "Architected, implemented, and maintained a QR code Access and Disease Prediction solution"
     }
     // Add more experiences here
   ];
@@ -139,10 +146,10 @@ const Experience = () => {
   return (
     <ExperienceContainer start="#5C8374" end="#5C8374" direction="to bottom right">
       {experiences.map((exp, index) => (
-        <Card key={index} >
-          <h4>{exp.title}</h4>
-          <span>{exp.duration}</span>
-          <p>{exp.description}</p>
+      <Card key={index} >
+          <SlideCoverRight> <h4>{exp.title}</h4></SlideCoverRight> 
+          <SlideCoverRight>      <span>{exp.duration}</span></SlideCoverRight> 
+          <SlideCoverRight>        <p>{exp.description}</p></SlideCoverRight> 
         </Card>
       ))}
     </ExperienceContainer>

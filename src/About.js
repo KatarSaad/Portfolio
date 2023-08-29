@@ -1,9 +1,12 @@
-import React from 'react';
+import React,{useState} from 'react';
 import styled, { keyframes } from 'styled-components';
 import {CircleExpand,FloatingElement,Spacer,} from "./StyledComp"
 import profileImage from './IMG_0178__1_-removebg-preview.jpg';
 import { GlowingButton} from "./ProjectPage"
 import { SlideCover } from './Animations';
+import {Modal} from './Modal'
+const pdfPath = process.env.PUBLIC_URL + '/1.pdf';
+
 
 const fadeIn = keyframes`
   0% { opacity: 0; }
@@ -157,10 +160,16 @@ const TextMod = styled.div`
 
 
 const About = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <Container>
    <AboutContainer>
    <Spacer size='50px' />
+
+<Modal show={isModalOpen} onClose={() => setIsModalOpen(false)}>
+<embed src={pdfPath} type="application/pdf" width="1400px" height="1000px" />
+</Modal>
 
   <TextMod font="Orbitron" weight="600" size="36px" color="#BCEAD5">
     I Make Software
@@ -186,8 +195,8 @@ const About = () => {
   </SlideCover>
 
   <Spacer size="100px"/>
-  <GlowingButton bgColor="#00DFA2" bgColorChange="E8FFCE" TextColor="#E8FFCE" hoverTextColor="00DFA2">
-  Hire me!!!!!!!
+  <GlowingButton  onClick={() => setIsModalOpen(true)} bgColor="#00DFA2" bgColorChange="E8FFCE" TextColor="#E8FFCE" hoverTextColor="00DFA2">
+  CV
 </GlowingButton>
 </AboutContainer>
     

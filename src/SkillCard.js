@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import TextMod from "./About"
 import { GlowsTextNoAnimation } from "./About"
+import { SlideCover, SlideCoverRight } from './Animations';
+
 
 const CardWraper = styled.div`
   ...
@@ -51,8 +53,8 @@ const Row = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 40px;
-  height: 40px;
+  width: 100px;
+  height: 100px;
   margin-right: 15px;
 `;
 
@@ -101,16 +103,18 @@ const SkillCard = ({ category }) => {
   return (
     <Card>
       <Header>
-        <Logo src="https://via.placeholder.com/40" alt="Category Logo" />
+        <Logo src={category.image} alt="Category Logo" />
         <Title>{category.title}</Title>
       </Header>
       <ScrollableContent>
         {category.skills.map(skill => (
+          <SlideCoverRight>
           <Row key={skill.name}>
-            <Logo src={skill.logoSrc} alt={skill.name} />
+
             <SkillTag>{skill.name}</SkillTag>
             <Description>{skill.description}</Description>
           </Row>
+          </SlideCoverRight>
         ))}
       </ScrollableContent>
     </Card>

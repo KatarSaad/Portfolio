@@ -1,4 +1,7 @@
 import React ,{useRef, useState,useEffect} from 'react';
+import ReactPlayer from 'react-player';
+import  PdfViewer  from './PdfViewer';
+const pdfPath = process.env.PUBLIC_URL + '/1.pdf';
 import {
   ProjectContainer, ProjectTitle, LinksContainer, GradientButton,
   Description, DemonstrationContainer, StepsContainer, StepItem,
@@ -44,6 +47,7 @@ const liftEffect = css`
 
 export const GlowingButton = styled.button`
   padding: 10px 20px;
+  
   border: 2px solid #FFF;
   background-color: ${props => props.bgColor || '#4A90E2'};
   color: ${props => props.TextColor || '#000'};
@@ -61,29 +65,55 @@ export const GlowingButton = styled.button`
   }
 `;
 export const GlowingButton2 = styled.button`
-  padding: 0;
+  display: inline-block !important;
+  width: auto !important;
+    align-self: flex-start;  // This line will prevent the button from stretching
 
-  border: 1px solid #FFF;
-  background-color: ${props => props.bgColor || '#4A90E2'};
-  color: ${props => props.TextColor || '#000'};
-  font-size: 1.5rem;
-  cursor: pointer;
-  border-radius: 60px;
-  outline: none;
-  ${liftEffect}
+  box-sizing: border-box !important;
+  margin: 10px !important;
+  padding: 0 !important;
+  white-space: nowrap !important;  // Prevents the text from wrapping
+  border: 1px solid #FFF !important;
+  background-color: ${props => props.bgColor || '#4A90E2'} !important;
+  color: ${props => props.TextColor || '#000'} !important;
+  font-size: 1.5rem !important;
+  cursor: pointer !important;
+  border-radius: 6px !important;
+  outline: none !important;
+  ${liftEffect}  // If liftEffect contains any widths, you might need to adjust there as well
   
   &:hover {
-    animation: ${glowingAnimation} 1.5s infinite;
-    color: ${props => props.hoverTextColor || '#000'};
-    background-color: ${props => props.bgColorChange || '#4A90E2'};
-
+    animation: ${glowingAnimation} 1.5s infinite !important;
+    color: ${props => props.hoverTextColor || '#000'} !important;
+    background-color: ${props => props.bgColorChange || '#4A90E2'} !important;
   }
 `;
+
 
 export const FlexWrapper = styled.div`
   display: flex;
   align-items: start; // This will align items to the top
 `;
+const VideoWrapper = styled.div`
+  display: flex;
+  height:900px;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+`;
+
+const StyledReactPlayer = styled(ReactPlayer)`
+  border-radius: 10px;
+  overflow: hidden;
+
+  & video {
+    border-radius: 10px; 
+  }
+`;
+
 
 
 const Project = ({project}) => {
@@ -250,6 +280,18 @@ const projectData = location.state;
   {/* ... add other tags here */}
 </TagsContainer>
           <GlowingLine lineColor="#00DFA2" shadowColor="#00DFA2" />
+          <VideoWrapper>
+      <StyledReactPlayer 
+        url='https://www.youtube.com/watch?v=DZjSVHBpcNI' 
+        controls={true} 
+        width="100%" 
+        height="auto"
+      />
+    </VideoWrapper>
+    <div>
+     
+            <embed src={pdfPath} type="application/pdf" width="100%" height="900px" />
+           </div>
 
 
           {demonstration && (
@@ -303,7 +345,7 @@ const StyledList = styled.ul`
     margin-bottom: 20px; // Adds margin to the bottom of each list item
   }
 `;
-const SocialMediaLogo = styled.img`
+export const SocialMediaLogo = styled.img`
   width: 40px; // Set a fixed width to visualize the logo
   height: auto;
   margin: 0 ;

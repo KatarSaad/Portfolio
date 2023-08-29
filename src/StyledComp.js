@@ -1733,7 +1733,8 @@ const liftEffect = css`
 export const SkillTag = styled.span`
   padding: 5px 10px;
   border-radius: 3px;
-  margin-right: 10px;
+  margin-bottom: 0px;
+    margin-right: 10px;
   color: ${props => props.textColor || '#00DFA2'};
 
   background-color: ${props => props.bgColor || '#E8FFCE'};

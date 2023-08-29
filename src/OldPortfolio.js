@@ -4,6 +4,9 @@ import { Button } from '@mui/material';
 import About from './About';
 import Skills from './Skills';
 import CardsList from"./CardsList";
+import Particle from "react-tsparticles"
+import ParticleConfig  from './ParticleConfig';
+
 
 import Projects from './Projects';
 import styled, { keyframes } from 'styled-components';
@@ -21,11 +24,12 @@ import { Link, Element } from 'react-scroll';
 
 // Your styled components here
 
+
+
+
 const HomePage = ({ref1, ref2, ref3, ref4}) =>{
 
-  const scrollToRef = (ref) => {
-    ref.current.scrollIntoView({ behavior: 'smooth' });
- }
+
   const [scrollDirection, setScrollDirection] = useState(null);
   
   useEffect(() => {
@@ -34,6 +38,7 @@ const HomePage = ({ref1, ref2, ref3, ref4}) =>{
       const scrollY = window.pageYOffset;
       setScrollDirection(scrollY > lastScrollY ? 'down' : 'up');
       lastScrollY = scrollY;
+      console.log(ref1)
     }
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
@@ -67,6 +72,8 @@ const HomePage = ({ref1, ref2, ref3, ref4}) =>{
       observer.disconnect();
     };
   }, []);
+ 
+
   const { scrollYProgress } = useViewportScroll();
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
@@ -94,6 +101,8 @@ const HomePage = ({ref1, ref2, ref3, ref4}) =>{
 
   return (
     <HomePageContainer>
+          
+      
       <GradientBackground startColor="#040D12" endColor="#040D12" direction="to bottom">
 
       <Fade direction="bottom" top opacity={scrollDirection === 'down' ? 0 : 1} ref={topRef} />
@@ -103,8 +112,9 @@ const HomePage = ({ref1, ref2, ref3, ref4}) =>{
      
         <Spacer size="30px"/>
         <SlideInLeft>
+      
      
-      <StyledElement  name="about" title=" ABOUT">
+      <StyledElement  id="about" title=" ABOUT">
       <img src={ArrowIcon} alt="Arrow Icon" style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', width: '40px', height: '40px' }} />
       
     
@@ -113,7 +123,7 @@ const HomePage = ({ref1, ref2, ref3, ref4}) =>{
 </SlideInLeft>
    <About /> 
 <SlideInLeft>
-      <StyledElement  name="skills" title=" SKILLS">
+      <StyledElement  id="skills" title=" SKILLS">
       <img src={ArrowIcon} alt="Arrow Icon" style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', width: '40px', height: '40px' }} />
       
     
@@ -121,14 +131,17 @@ const HomePage = ({ref1, ref2, ref3, ref4}) =>{
 </SlideInLeft>
         
 
-        <SlideInRight>  <Skills /></SlideInRight>
+        <SlideInRight> 
+           <Skills /></SlideInRight>
       
   
       
         <SlideInLeft>
-      <StyledElement  name="experience" title=" EXPERIENCE">
+      <StyledElement  id="experience"      title=" EXPERIENCE">
+        <Element name="experience">
 
-     <div></div>      
+     <div ></div>   
+     </Element>   
     
 </StyledElement>
 </SlideInLeft>
@@ -136,7 +149,7 @@ const HomePage = ({ref1, ref2, ref3, ref4}) =>{
       <DivAppear>  <Experience /> </DivAppear>
       
       <SlideInLeft>
-      <StyledElement name="project" title=" PROJECTS">
+      <StyledElement id="projects" title=" PROJECTS">
       <img src={ArrowIcon} alt="Arrow Icon" style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', width: '40px', height: '40px' }} />
       
     
@@ -145,7 +158,7 @@ const HomePage = ({ref1, ref2, ref3, ref4}) =>{
 
         <CardsList/>
 
-        <StyledElement name="contact" title=" CONTACT">
+        <StyledElement id="contact" title=" CONTACT">
       <img src={ArrowIcon} alt="Arrow Icon" style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', width: '40px', height: '40px' }} />
       
     

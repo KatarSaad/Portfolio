@@ -1,7 +1,9 @@
-import React,{useRef} from 'react';
+import React,{useRef,useState,useEffect} from 'react';
 import styled ,{keyframes}from 'styled-components';
-import { Link } from 'react-scroll';
 import { SocialIcon } from 'react-social-icons';
+import { useScroll } from './Content';
+import { HashLink as Link } from 'react-router-hash-link';
+
 
 // Import your image
 import profileImage from './IMG_0178__1_-removebg-preview.jpg';
@@ -9,12 +11,16 @@ import  Cursor  from './Cursor';
 import { GradientBackground } from './StyledComp';
 import {Icon} from './Animations'
 import  git from './Brands/github.png'
+
 import linkedIn from './Brands/linkedin.png'
 import google from './Brands/google.png'
+import { GlowingButton2, SocialMediaLogo as S } from './ProjectPage';
 
 
 
 const   Sidebar = (props) => {
+  const sectionRef = useRef(null);
+  const scrollToSection = useScroll();
  
   return (
     <SidebarContainer backgroundColor="#14C38E" borderColor="#0C356A">
@@ -31,33 +37,41 @@ const   Sidebar = (props) => {
     
       <Icon delay={0.4}>   <NavContainer>
       <GlowingLine width="100%" height="2px" />
+      
+      <StyledLink smooth to="/#about" >
+          <GlowsText color="#63686E">ABOUT</GlowsText>
+          <span></span> {/* This span is responsible for the line animation */}
 
-        <StyledLink to="experience" smooth={true} duration={500}>
+        </StyledLink>
+      
+      <StyledLink smooth to="/#skills" >
+          <GlowsText color="#63686E">SKILLS</GlowsText>
+          <span></span> {/* This span is responsible for the line animation */}
+
+        </StyledLink>
+
+        <StyledLink smooth to="/#experience"
+>
         <span></span> {/* This span is responsible for the line animation */}
-          <GlowsText color="#63686E">EXPERIENCE</GlowsText>
+          <GlowsText  color="#63686E">EXPERIENCE</GlowsText>
     
         </StyledLink>
 
         <Spacer height="10px" />
         
-        <StyledLink to="projects" smooth={true} duration={500}>
-          <GlowsText  color="#7E97A6">PROJECTS</GlowsText>
+        <StyledLink smooth to="/#projects" >
+          <GlowsText  color="#63686E">PROJECTS</GlowsText>
           <span></span> {/* This span is responsible for the line animation */}
 
         </StyledLink>
 
         <Spacer height="10px" />
 
-        <StyledLink to="skills" smooth={true} duration={500}>
-          <GlowsText color="#DEE1E6">SKILLS</GlowsText>
-          <span></span> {/* This span is responsible for the line animation */}
-
-        </StyledLink>
 
         <Spacer height="10px" />
 
-        <StyledLink to="contact" smooth={true} duration={500}>
-          <GlowsText color="#DEE1E6">CONTACT</GlowsText>
+        <StyledLink smooth to="/#contact">
+          <GlowsText color="#63686E">CONTACT</GlowsText>
           <span></span> {/* This span is responsible for the line animation */}
 
         </StyledLink>
@@ -67,9 +81,16 @@ const   Sidebar = (props) => {
       <GlowingLine width="100%" height="2px" />
 
       <SocialMediaContainer>
-    <SocialMediaLogo src={git} alt="GitHub Logo"/>
-  <SocialMediaLogo src={linkedIn} alt="LinkedIn Logo"/>
-  <SocialMediaLogo src={google} alt="Google Logo"/>
+    
+      <GlowingButton2 bgColor="#C3EDC0" bgColorChange="E8FFCE" TextColor="#E8FFCE" hoverTextColor="00DFA2">
+         <SocialMediaLogo src={git} alt="GitHub Logo"/></GlowingButton2>
+
+         <GlowingButton2 bgColor="#C3EDC0" bgColorChange="E8FFCE" TextColor="#E8FFCE" hoverTextColor="00DFA2">
+         <SocialMediaLogo src={linkedIn} alt="linkedin Logo"/></GlowingButton2>
+
+
+         <GlowingButton2 bgColor="#C3EDC0" bgColorChange="E8FFCE" TextColor="#E8FFCE" hoverTextColor="00DFA2">
+         <SocialMediaLogo src={google} alt="GitHub Logo"/></GlowingButton2>
   {/* ... any other logos */}
   {/* ... any other logos */}
 </SocialMediaContainer>
@@ -141,15 +162,38 @@ const GlowsText = styled.div`
   color: ${(props) => props.color || '#00ff00'};
   animation: ${glowingTextAnimation} 1.5s infinite;
 `;
+export const LineTextContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
 
+  &::before, &::after {
+    content: "";
+    flex: 1;
+    height: ${(props) => props.height || '1px'};
+    background-color: #FFF3E1;
+    animation: ${glowingAnimation} 1.5s infinite;
+  }
+
+  &::before {
+    margin-right: 10px;
+  }
+
+  &::after {
+    margin-left: 10px;
+  }
+`;
 // Glowing Line (Horizontal & Vertical) Components
-const GlowingLine = styled.div`
+export const GlowingLine = styled.div`
   width: ${(props) => props.width || '100%'};
   height: ${(props) => props.height || '1px'};
   margin: 0 auto 20px auto;  // Centers the line horizontally
   background-color: #FFF3E1;
   animation: ${glowingAnimation} 1.5s infinite;
 `;
+
 
 
 // Fixed Logos at the Bottom of the Page
@@ -335,18 +379,22 @@ const StyledLink = styled(Link)`
 
 const SocialMediaContainer = styled.div`
   display: flex;
-  margin-top:280px;
+  
+  margin-top:200px;
+  padding-left:30%;
   flex-direction: column;
   width: 100%; // Set a fixed width temporarily to ensure logos fit inside
 `;
 
 const SocialMediaLogo = styled.img`
   width: 50px; // Set a fixed width to visualize the logo
-  height: auto;
-  margin: 10px ;
+  height: 50px;
+  margin: 0px ;
+  margin-left:0;
+
 
   &:nth-child(odd) {
-    margin-left: 10px;
+    margin-left: 0px;
     margin-right: auto;
   }
   

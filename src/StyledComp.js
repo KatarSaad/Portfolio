@@ -858,7 +858,6 @@ export const StarRating = styled.div`
   }
 `;
 
-
 export const TextMod = styled.span`
   font-size: ${props => props.size || '1rem'};
   color: ${props => props.color || 'black'};
@@ -870,8 +869,11 @@ export const TextMod = styled.span`
   letter-spacing: ${props => props.spacing || 'normal'};
   line-height: ${props => props.lineHeight || 'normal'};
   
+  @media (max-width: 600px) {
+    font-size: calc(${props => props.size || '1rem'} * 0.7); // Reduce font size to 70% of the input size on screens <= 600px
+  }
 `;
-//                            TODO:
+                      
 
 // Horizontal line that grows in width upon hover.
 
@@ -993,14 +995,25 @@ export const WavyLine = styled.div`
 
 // Circle shape that expands on interaction.
 export const CircleExpand = styled.div`
-  width: 450px;
-  height: 450px;
+    width: 150px;  // Smaller size for mobile
+  height: 250px;  // Smaller size for mobile
   border-radius: 50%;
   background-color: ${props => props.lineColor || '#00DFA2'};
-  box-shadow: 0 0 8px ${props => props.shadowColor || '#00DFA2'};  transition: transform 0.5s;
+  box-shadow: 0 0 8px ${props => props.shadowColor || '#00DFA2'};
+  transition: transform 0.5s;
 
   &:hover {
     transform: scale(1.2);
+  }
+
+  @media (min-width: 501px) {
+    width: 350px;  // Increased size for tablets
+    height: 350px;  // Increased size for tablets
+  }
+
+  @media (min-width: 801px) {
+    width: 450px;  // Original size for desktops and larger screens
+    height: 450px;  // Original size for desktops and larger screens
   }
 `;
 
@@ -1734,16 +1747,18 @@ export const SkillTag = styled.span`
   padding: 5px 10px;
   border-radius: 3px;
   margin-bottom: 0px;
-    margin-right: 10px;
+  margin-right: 10px;
   color: ${props => props.textColor || '#00DFA2'};
-
   background-color: ${props => props.bgColor || '#E8FFCE'};
   animation: ${glowingAnimation} 1.5s infinite;
   ${liftEffect};
 
-  
-
+  @media (max-width: 600px) {
+    padding: 3px 5px;  // reduced padding for mobile
+    margin-right: 5px; // reduced margin for mobile
+  }
 `;
+
 export const BulletPoints = styled.div`
   display: flex;
   align-items: center;
@@ -1927,5 +1942,9 @@ export const CardContainer = styled.div`
     display: none;  // Hide scrollbar for Chrome, Safari and Opera
   }
   scrollbar-width: none;  // Hide scrollbar for IE and Edge
+   @media (max-width: 701px) {
+    margin-left:1px;
+    margin-right:2px;
+  }
 `;
 

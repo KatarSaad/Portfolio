@@ -49,6 +49,8 @@ const Row = styled.div`
   @media (min-width: 601px) {
     flex-direction: row; // Horizontal layout on larger screens
     justify-content: flex-start;
+    margin-bottom: 5px; // Reduce spacing between rows for mobile
+
   }
 `;
 
@@ -56,6 +58,10 @@ const Logo = styled.img`
   width: 100px;
   height: 100px;
   margin-right: 15px;
+  @media (max-width: 600px) {
+    width: 50px;  // Slightly reduce logo size for mobile
+    height: 50px;
+  }
 `;
 
 const Header = styled.div`
@@ -72,7 +78,9 @@ const Title = styled.h1`
   font-size: 1.5rem; // Adjust for better mobile readability
 
   @media (max-width: 600px) {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    margin: 5px 0; // Reduce spacing for mobile
+
   }
 `;
 
@@ -85,6 +93,8 @@ const SkillTag = styled.span`
 
   @media (max-width: 600px) {
     font-size: 0.8rem; // Smaller font for mobile
+    margin-right: 10px; // Slight reduction for mobile
+
   }
 `;
 
@@ -95,7 +105,7 @@ const Description = styled.p`
   font-size: 1.2rem;
 
   @media (max-width: 600px) {
-    font-size: 0.8rem; // Smaller font for mobile
+    font-size: 0.8rem; // Slight size adjustment for better readability
   }
 `;
 

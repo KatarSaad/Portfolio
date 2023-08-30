@@ -47,9 +47,9 @@ const SkillsContainer = styled.div`
 
   overflow-y: auto;
   min-width:100px;
-  height: 1080px;
+  height: 880px;
   margin: 0;
-  margin-bottom:-55px;
+  margin-bottom:155px;
   background: transparent;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 -1px 2px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(1px);
@@ -65,6 +65,14 @@ const SkillsContainer = styled.div`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  height: 1080px;
+  @media (max-width: 768px) {
+    height: auto; // Dynamic height based on content for mobile
+    &::after, &::before {
+      left: 10%; // Adjust horizontal lines for mobile
+      right: 10%; 
+    } 
+
   align-items: center;  // This centers its children horizontally
   position: relative;
   animation: ${upDownAnimation} 2s infinite;
@@ -268,6 +276,13 @@ const StyledImage = styled.img`
     height: 100px;
     margin: 30px; // This ensures there's a 20px space between images
     margin-right: 70px; // This ensures there's a 20px space between images
+     
+  @media (max-width: 768px) {
+    width: 50px; // Smaller images on mobile
+    height: 50px;
+    margin: 10px;
+    margin-right: 0px;
+  }
 
 `;
 

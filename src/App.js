@@ -25,15 +25,20 @@ const   Sidebar = (props) => {
   return (
     <SidebarContainer backgroundColor="#14C38E" borderColor="#0C356A">
     <GradientWrapper direction="to bottom" startColor="#14C38E" endColor="#00FFAB">
-      <ProfileImage src={profileImage} alt="Your Name" />
+      <Spacer height="50px"/>
       <GlowingLine width="100%" height="2px" />
 
     <Icon delay={0.1}>  <Name scrollPercentage={props.scrollPercentage}>SAAD KATAR</Name></Icon>
       <GlowingLine width="100%" height="2px" />
+      <Spacer height="20px"/>
+
       <GlowingLine width="80%" height="2px" />
+      
 
       <Icon delay={0.2}>   <JobTitle scrollPercentage={props.scrollPercentage}>JUNIOR SOFTWARE ENGINEER</JobTitle> </Icon>
       <GlowingLine width="80%" height="2px" />
+      <Spacer height="20px"/>
+
     
       <Icon delay={0.4}>   <NavContainer>
       <GlowingLine width="100%" height="2px" />
@@ -158,7 +163,7 @@ const glowingTextAnimation = keyframes`
 
 // Glowing Text Component
 const GlowsText = styled.div`
-  font-size: 16px;
+  font-size: 10px;
   color: ${(props) => props.color || '#00ff00'};
   animation: ${glowingTextAnimation} 1.5s infinite;
 `;
@@ -270,9 +275,9 @@ const Tooltip = styled.span`
 `;
 
 const Name = styled.h1`
-font-family: 'Gruppo', bold;
-font-weight: 1100;
-  font-size: 20px;
+font-family: 'Gruppo';
+font-weight: 800;
+  font-size: 15px;
   color: #122D42;
   margin-bottom: 1rem;
   margin-left: 3px;
@@ -282,7 +287,7 @@ font-weight: 1100;
 
 const JobTitle = styled.h2`
   font-family: 'Gruppo',sans-serif;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 700;
 
   color: #122D42;
@@ -305,8 +310,8 @@ const SidebarContainer = styled.div`
 
   background:  #14C38E;
   height: 100%; // This ensures it covers the entire viewport height
-  width: 150px;
-  min-width:150px;
+  width: 80px;
+  min-width:80px;
   min-height:100%;
   display: flex;
   flex-direction: column;
@@ -321,6 +326,14 @@ const SidebarContainer = styled.div`
   // Hide scrollbar for Firefox
   scrollbar-width: none;
     animation: ${moveContainer} 4s infinite;
+    @media (max-width: 768px) { // Tablet breakpoint
+      width: 100px;
+      min-width:100px;
+    }
+    @media (max-width: 480px) { // Smartphone breakpoint
+      width: 80px;
+      min-width:80px;
+    }
 
 
   
@@ -335,6 +348,12 @@ const ProfileImage = styled.img`
   object-fit: cover;
   margin-bottom: 1rem;
   margin-top:20px;
+  @media (max-width: 480px) {
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+  }
+
   
 `;
 
@@ -347,8 +366,12 @@ const WholeApp = styled.div`
 const StyledLink = styled(Link)`
   font-family: 'Orbitron', sans-serif;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 7px!important;
   color: #444941;
+  @media (max-width: 480px) {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
   
   text-decoration: none;
  margin-left: 5px;
@@ -387,8 +410,8 @@ const SocialMediaContainer = styled.div`
 `;
 
 const SocialMediaLogo = styled.img`
-  width: 50px; // Set a fixed width to visualize the logo
-  height: 50px;
+  width: 20px; // Set a fixed width to visualize the logo
+  height: 20px;
   margin: 0px ;
   margin-left:0;
 
@@ -401,6 +424,10 @@ const SocialMediaLogo = styled.img`
   &:nth-child(even) {
     margin-left: auto;
     margin-right: 10px;
+  }
+  @media (max-width: 480px) {
+    width: 40px;
+    height: 40px;
   }
 `;
 

@@ -14,30 +14,6 @@ const slideInRight = keyframes`
   }
 `;
 
-const ExperienceContainer = styled.div`
-min-width: 10% !important;
-margin-top:0px;
-
-height:100%;
-display: flex;
-padding-left :100px;
-padding-right:200px;
-padding-top:100px;
-  flex-direction: column;
-  align-items: left;
-  align-content: left;
-  float:left;
-  background:transparent;
-
-  animation: 1s ${slideInRight} ease-out;
-  
-  h1 {
-    color: #90C8AC;
-    margin-bottom: 1rem;
-    width: 100%;
-    text-align: left;
-  }
-`;
 const glowingAnimation = keyframes`
   0% {
     box-shadow: 0 0 1px #00DFA2;
@@ -50,43 +26,74 @@ const glowingAnimation = keyframes`
   }
 `;
 
+const ExperienceContainer = styled.div`
+  width: 90%; // Default width for mobile
+  margin: 20px auto;  // Center the container and provide vertical spacing
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 20px; // Reduced padding for mobile
+  align-items: flex-start; // Better syntax instead of 'left'
+  background: transparent;
+  animation: 1s ${slideInRight} ease-out;
+
+  @media (min-width: 601px) { 
+    padding: 50px; 
+  }
+
+  @media (min-width: 801px) {
+    padding: 100px 200px;
+    width: auto;
+    min-width: 10%;
+    align-items: flex-start; 
+  }
+  
+  h1 {
+    color: #90C8AC;
+    margin-bottom: 1rem;
+    width: 100%;
+    text-align: left;
+  }
+`;
+
 const Card = styled.div`
   position: relative;
-  margin-bottom: 50px;
-  height: auto;
-  width: auto;
-  min-width: 10%;
-  max-width: 90%;
-  align-items: center;
-  justify-content: space-between;
-  padding: 50px;
- 
-  
-  border-radius: 0px;
-  z-index: 4;
-  padding-top: 10px;
-  font-family: 'Ubuntu', sans-serif; // Default font for the card
+  margin: 20px auto; // Vertical spacing and horizontal centering
+  width: 90%; // Full width for mobile devices
+  padding: 20px; // Reduced padding for mobile
+  font-family: 'Ubuntu', sans-serif;
+
+  @media (min-width: 601px) {
+    width: 80%; // Slightly larger for tablets
+    padding: 30px;
+  }
+
+  @media (min-width: 801px) {
+    width: auto;
+    min-width: 10%;
+    max-width: 90%;
+    padding: 50px;
+  }
 
   h4 {
     font-family: 'Cutive Mono', monospace;
     font-weight: bold;
-    font-size: 30px;
-    color: #E3FCBF; // Changed to color 27374D
+    font-size: 25px; // Slightly smaller font size for mobile
+    color: #E3FCBF;
     margin-bottom: 0.5rem;
     margin-top: 0;
   }
 
   span {
-    font-size: 1rem;
+    font-size: 0.9rem; // Slightly smaller for mobile
     margin-bottom: 0.5rem;
     display: block;
-    color: #rgb(184, 241, 176); // Changed to color 2E4F4F
+    color: #rgb(184, 241, 176);
   }
 
   p {
-    font-size: 20px;
-    color: #F6F1E9; // Changed to color 2E4F4F
-    
+    font-size: 18px; // Reduced size for mobile
+    color: #F6F1E9;
   }
 
   &::before {
@@ -108,10 +115,9 @@ const Card = styled.div`
     height: 2px;
     background-color: #00DFA2;
     animation: ${glowingAnimation} 1.5s infinite;
-    top: 0; // This sets the horizontal line at the top
+    top: 0; 
   }
 
-  // Create an additional div to represent the bottom line
   & > div.bottomLine {
     content: "";
     position: absolute;
@@ -120,9 +126,10 @@ const Card = styled.div`
     height: 2px;
     background-color: #00DFA2;
     animation: ${glowingAnimation} 1.5s infinite;
-    bottom: 0; // This sets the horizontal line at the bottom
+    bottom: 0; 
   }
 `;
+
 const Experience = () => {
   const experiences = [
     {

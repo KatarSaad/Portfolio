@@ -67,12 +67,11 @@ export const GlowingButton = styled.button`
 export const GlowingButton2 = styled.button`
   display: inline-block !important;
   width: auto !important;
-    align-self: flex-start;  // This line will prevent the button from stretching
-
+  align-self: flex-start;  
   box-sizing: border-box !important;
-  margin: 10px !important;
-  padding: 0 !important;
-  white-space: nowrap !important;  // Prevents the text from wrapping
+  margin: 5px !important;
+  padding: 5px  ;
+  white-space: nowrap !important;  
   border: 1px solid #FFF !important;
   background-color: ${props => props.bgColor || '#4A90E2'} !important;
   color: ${props => props.TextColor || '#000'} !important;
@@ -80,12 +79,19 @@ export const GlowingButton2 = styled.button`
   cursor: pointer !important;
   border-radius: 6px !important;
   outline: none !important;
-  ${liftEffect}  // If liftEffect contains any widths, you might need to adjust there as well
+  ${liftEffect}  
   
   &:hover {
     animation: ${glowingAnimation} 1.5s infinite !important;
     color: ${props => props.hoverTextColor || '#000'} !important;
     background-color: ${props => props.bgColorChange || '#4A90E2'} !important;
+  }
+
+  @media (max-width: 600px) {
+    margin: 5px !important;
+    padding: 5px 10px !important;  // Smaller padding for mobile
+    font-size: 1rem !important;  // Smaller font for mobile
+    border-radius: 4px !important;  // Slightly smaller border-radius for mobile
   }
 `;
 

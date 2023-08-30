@@ -14,22 +14,27 @@ const blue = "#341cac";
 
 // Styled components
 const CardContainer = styled.article`
-  width: 700px !important;
-  
-  min-width: 700px;
+  min-width: 700px; // Full width for mobile
   display: block;
   margin: 30px;
+
   background: rgb(0, 255, 171,0.5);
   backdrop-filter: blur(7.5px);
   -webkit-backdrop-filter: blur(7.5px);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.18);
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.18);
   border: 1px solid rgba(255, 255, 255, 0.18);
   z-index: 4;
   transition: .25s;
 
   &:hover {
-    box-shadow: 10px 5px 40px 20px darken(${blue}, 10%);
+    box-shadow: 5px 2.5px 20px 10px darken(${blue}, 10%);
     cursor: pointer;
+  }
+
+  @media (max-width: 701px) {
+    min-width: 400px; // Full width for mobile
+    margin: 15px;  // centering for mobile
+
   }
 `;
 const TagsContainer = styled.div`
@@ -38,7 +43,7 @@ const TagsContainer = styled.div`
   padding-left:10px;
   height:70px;
   flex-wrap: wrap; // If tags exceed the container width, they will wrap to the next line
-  margin-bottom:px;
+  margin-bottom:2px;
   
 `;
 

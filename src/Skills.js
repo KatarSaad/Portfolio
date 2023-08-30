@@ -65,39 +65,39 @@ const SkillsContainer = styled.div`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 1080px;
+  height: 1180px;
+  align-items: center;  // This centers its children horizontally
+  position: relative;
+  animation: ${upDownAnimation} 2s infinite;
+  margin-bottom: -50px;
+
+  &::after, &::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    background-color: #00DFA2;
+    animation: ${glowingAnimation2} 1.5s infinite;
+  }
+
+  &::after {
+    left: 280px;
+    right: 10px;
+    top: 0; // This sets the horizontal line at the top
+  }
+
+  &::before {
+    left: 350px;
+    right: 0;
+    bottom: 0; // This sets the horizontal line at the bottom
+  }
+
   @media (max-width: 768px) {
     height: auto; // Dynamic height based on content for mobile
+
     &::after, &::before {
       left: 10%; // Adjust horizontal lines for mobile
       right: 10%; 
     } 
-
-  align-items: center;  // This centers its children horizontally
-  position: relative;
-  animation: ${upDownAnimation} 2s infinite;
-  margin-bottom:-50px;
-
-  &::after {
-    content: "";
-    position: absolute;
-    left: 280px;
-    right: 10px;
-    height: 2px;
-    background-color: #00DFA2;
-    animation: ${glowingAnimation2} 1.5s infinite;
-    top: 0; // This sets the horizontal line at the top
-  }
-  &::before {
-    content: "";
-    position: absolute;
-    left: 350px;
-    right: 0;
-
-    height: 2px;
-    background-color: #00DFA2;
-    animation: ${glowingAnimation2} 1.5s infinite;
-    top: 100%; // This sets the horizontal line at the top
   }
 `;
 

@@ -20,7 +20,9 @@ min-width:100px;
 background-color: transparent;
 border: 2px solid #00DFA2;
 margin: 0; 
-padding: 20px;
+padding-top: 2px;
+padding-left:10px;
+padding-right:10px;
 
 display: flex;
 flex-direction: column;
@@ -57,6 +59,7 @@ const Row = styled.div`
 const Logo = styled.img`
   width: 100px;
   height: 100px;
+  margin-top:0;
   margin-right: 15px;
   @media (max-width: 600px) {
     width: 50px;  // Slightly reduce logo size for mobile
@@ -67,9 +70,9 @@ const Logo = styled.img`
 const Header = styled.div`
   text-align: center;
   color: #E3FCBF;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   border-bottom: 3px solid #5C8374;
-  padding: 10px 0;
+  padding:  0;
 `;
 
 const Title = styled.h1`

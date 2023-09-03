@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import styled from 'styled-components';
+import styled,{keyframes} from 'styled-components';
 import ProjectPage from "./ProjectPage";
 import { useNavigate } from 'react-router-dom';
 import { FadeCover } from './Animations';
@@ -12,18 +12,28 @@ import { GlowingLine,LineTextContainer } from './App';
 // SCSS variables to JS constants
 const blue = "#341cac";
 
+const borderGlowAnimation = keyframes`
+    0% {
+        box-shadow: 0 0 5px #00FFAB;
+    }
+    50% {
+        box-shadow: 0 0 20px #00FFAB, 0 0 30px #00FFAB;
+    }
+    100% {
+        box-shadow: 0 0 5px #00FFAB;
+    }
+`;
+
 // Styled components
-const CardContainer = styled.article`
+export const CardContainer = styled.article`
   min-width: 700px; // Full width for mobile
   display: block;
   margin: 30px;
 
-  background: rgb(0, 255, 171,0.5);
+  background: #B8F1B0;
   backdrop-filter: blur(7.5px);
   -webkit-backdrop-filter: blur(7.5px);
-  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  z-index: 4;
+
   transition: .25s;
 
   &:hover {
@@ -36,6 +46,36 @@ const CardContainer = styled.article`
     margin: 15px;  // centering for mobile
 
   }
+  
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    transition: all 0.5s ease;
+    background: #00FFAB;
+    animation: ${borderGlowAnimation} 1.5s infinite alternate;
+  }
+  
+ 
+  
+  // Left border
+  &::after {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 4px;
+    box-shadow: 0 0 10px #00FFAB, 2px 0 5px #00FFAB;
+  }
+  // Right border
+  &::before {
+    top: 0;
+    right: 0;  // adjusted to right for right border
+    height: 100%;
+    width: 4px;
+    box-shadow: 0 0 10px #00FFAB, -2px 0 5px #00FFAB;
+  }
+
+
 `;
 const TagsContainer = styled.div`
   display: flex;
@@ -70,12 +110,27 @@ const CardHeader = styled.div`
   background-size: cover;
   background-image: url(${props => props.image});
   color: #fff;
+  // Top border
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #00FFAB;
+    box-shadow: 0 0 10px #00FFAB, 0 2px 5px #00FFAB;
+    animation: ${borderGlowAnimation} 1.5s infinite alternate;
+  }
 `;
 
 
 const CardHeaderTitle = styled.h1`
   text-transform: uppercase;
   margin: 0;
+      font-family: 'Cutive Mono', monospace;
+
   padding: 20px 0;  // Added some vertical padding for space
   white-space: normal;  // Ensures text wraps normally
   overflow-wrap: break-word;  // Breaks long words if they overflow container
@@ -94,6 +149,20 @@ const CardBody = styled.div`
   flex-direction: column;
   background-color: transparent;
   padding: 0px; // Consistent padding around the body for spacing
+  
+  // Bottom border
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #00FFAB;
+    box-shadow: 0 0 10px #00FFAB, 0 -2px 5px #00FFAB;
+    animation: ${borderGlowAnimation} 1.5s infinite alternate;
+  }
 `;
 
 const DateText = styled.span`
@@ -105,6 +174,9 @@ const DateText = styled.span`
 
 const BodyContent = styled.p`
 padding-bottom: 0px;
+  font-family: 'Gruppo';
+  weight:1000;
+color:black;
 margin-top:0px;
 padding-left:10px;
 
@@ -131,7 +203,7 @@ const ButtonPrimary = styled.button`
 `;
 export const ButtonWrapper = styled.div`
   position: absolute;  // Use absolute positioning
-  bottom: 10px;  // Push the button 10px from the bottom of CardBody
+  bottom: -20px;  // Push the button 10px from the bottom of CardBody
   left: 50%;  // Center the button horizontally
   transform: translateX(-50%);  // This ensures the centering is perfect, translating half the width of the button to the left
   display: flex;
@@ -168,7 +240,6 @@ const Card = ({ image, title, text, project,skills,technologies }) => {
   return(
  
     <CardContainer>
-    <FadeCover>
     <CardHeader image={image}>
         <VisitContainer>
           {/* (repeated 3 times for illustrative purposes) */}
@@ -191,7 +262,7 @@ const Card = ({ image, title, text, project,skills,technologies }) => {
         {/* 2. Title */}
 
         {/* 3. Date */}
-        <TextMod size="1rem" color="grey">{new Date().toLocaleDateString()}</TextMod> 
+        <TextMod size="13px" color="grey">{new Date().toLocaleDateString()}</TextMod> 
 
         {/* 4. GlowingLine */}
         <GlowingLine width="95%" height="2px" />
@@ -208,7 +279,7 @@ const Card = ({ image, title, text, project,skills,technologies }) => {
           <SkillsWrapper>
             <TagsContainer>
               {skills?.map(skill => (
-                <TextMod key={skill} size="13px" font="Roboto slab" weight="normal">
+                <TextMod key={skill} size="13px" font="Gruppo" weight="1000">
                   <SkillTag>{skill}</SkillTag>
                 </TextMod>
               ))}
@@ -223,7 +294,7 @@ const Card = ({ image, title, text, project,skills,technologies }) => {
           <SkillsWrapper>
             <TagsContainer>
               {technologies?.map(tech => (
-                <TextMod key={tech} size="15px" font="Roboto slab" weight="normal">
+                <TextMod key={tech} size="15px" font="Gruppo" weight="1000">
                   <SkillTag>{tech}</SkillTag>
                 </TextMod>
               ))}
@@ -233,11 +304,10 @@ const Card = ({ image, title, text, project,skills,technologies }) => {
         {/* 8. Read More Button */}
       
       </CardBody>
-    </FadeCover>
     <ButtonWrapper>
-          <GlowingButton2 onClick={handleReadMoreClick} bgColor="#C3EDC0" bgColorChange="E8FFCE" TextColor="#E8FFCE" hoverTextColor="00DFA2">
+          <GlowingButton2 onClick={handleReadMoreClick} bgColor="#00FFAB" bgColorChange="E8FFCE" TextColor="#E8FFCE" hoverTextColor="00DFA2">
             Read More 
-          </GlowingButton2>
+          </GlowingButton2 >
         </ButtonWrapper>
   </CardContainer>
   );

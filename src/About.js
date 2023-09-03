@@ -4,7 +4,7 @@ import {CircleExpand,FloatingElement,Spacer,} from "./StyledComp"
 import profileImage from './IMG_0178__1_-removebg-preview.jpg';
 import { GlowingButton} from "./ProjectPage"
 import { SlideCover } from './Animations';
-import {Modal} from './Modal'
+import Modal from './Modal'
 const pdfPath = process.env.PUBLIC_URL + '/1.pdf';
 
 
@@ -12,7 +12,7 @@ const fadeIn = keyframes`
   0% { opacity: 0; }
   100% { opacity: 1; }
 `;
-const glowingAnimation2 = keyframes`
+export const glowingAnimation2 = keyframes`
 0% {
   box-shadow: 0 0 1px #00DFA2;
 }
@@ -39,13 +39,7 @@ const Container = styled.div`
 `;
 
 
-const ImageWrapper = styled(FloatingElement)`
-  width: 30%;  // Adjust this width as necessary
-  @media (max-width: 768px) {
-    width: 60%; // Larger width on mobile
-    margin-bottom: 20px; // Space between the image and the about content
-  }
-`;
+
 
 const AboutContainer = styled.div`
   margin: 2rem 0;
@@ -53,7 +47,7 @@ const AboutContainer = styled.div`
   z-index: 1;
   @media (max-width: 768px) {
     width: 100%; // Take the full width on mobile
-    margin-left: 0; // No left margin on mobile
+    margin-left: 50px; // No left margin on mobile
     padding: 0.5rem; // Reduced padding on mobile
   }
 
@@ -67,8 +61,8 @@ const AboutContainer = styled.div`
     content: "";
     position: absolute;
     left: 0;
-    top: 80px;
-    bottom: 40px;
+    top: 10 0px;
+    bottom: 200px;
     width: 2px;
     background-color: #00DFA2;
     animation: ${glowingAnimation2} 1.5s infinite;
@@ -132,7 +126,7 @@ const sideBySideAnimation = keyframes`
     transform: translateX(1px);
   }
 `;
-const GlowsText = styled.span`
+export const GlowsText = styled.span`
   animation: ${glowingUnderlineAnimation} 1.5s infinite, ${sideBySideAnimation} 1.2s infinite;
   color: #00FFAB;
   cursor: pointer;
@@ -204,6 +198,7 @@ const About = () => {
 
   return (
     <Container>
+     
    <AboutContainer>
    <Spacer size='50px' />
 

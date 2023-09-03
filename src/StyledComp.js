@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
+import { glowingAnimation2 as animation} from './About';
 export const FlexContainer = styled.div`
   display: flex;
    margin:0;!important
@@ -869,9 +870,25 @@ export const TextMod = styled.span`
   letter-spacing: ${props => props.spacing || 'normal'};
   line-height: ${props => props.lineHeight || 'normal'};
   
-  @media (max-width: 600px) {
-    font-size: calc(${props => props.size || '1rem'} * 0.7); // Reduce font size to 70% of the input size on screens <= 600px
+  @media (max-width: 700px) {
+    font-size: calc(${props => props.size || '1rem'} * 0.75); // Reduce font size to 70% of the input size on screens <= 600px
   }
+`;
+export const TextModP = styled.p`
+  font-size: ${props => props.size || '1rem'};
+  color: ${props => props.color || 'black'};
+  font-style: ${props => props.type || 'normal'};
+  font-weight: ${props => props.weight || 'normal'};
+  font-family: ${props => props.font || 'Arial, sans-serif'};
+  text-decoration: ${props => props.decoration || 'none'};
+  text-transform: ${props => props.transform || 'none'};
+  letter-spacing: ${props => props.spacing || 'normal'};
+  line-height: ${props => props.lineHeight || 'normal'};
+  
+  @media (max-width: 700px) {
+    font-size: calc(${props => props.size || '1rem'} * 0.75); // Reduce font size to 70% of the input size on screens <= 600px
+  }
+  
 `;
                       
 
@@ -995,7 +1012,7 @@ export const WavyLine = styled.div`
 
 // Circle shape that expands on interaction.
 export const CircleExpand = styled.div`
-    width: 150px;  // Smaller size for mobile
+    width: 250px;  // Smaller size for mobile
   height: 250px;  // Smaller size for mobile
   border-radius: 50%;
   background-color: ${props => props.lineColor || '#00DFA2'};

@@ -292,7 +292,7 @@ const Cover2 = styled(motion.div)`
   width: 100%;
   background-color: #00DFA2;
   transform-origin: left;
-  z-index: 0;
+  z-index: -1;
 `;
 const Wrapper = styled.div`
   position: relative;

@@ -64,6 +64,29 @@ export const GlowingButton = styled.button`
 
   }
 `;
+export const Glowing = styled.button`
+padding: 10px 20px;
+position: absolute;
+bottom: -20px;  // Adjust this to your preference, it's the distance from the bottom
+left: 50%;
+transform: translateX(-50%); // This is essential to center the button
+
+border: 2px solid #FFF;
+background-color: ${props => props.bgColor || '#4A90E2'};
+color: ${props => props.TextColor || '#000'};
+font-size: 1.5rem;
+cursor: pointer;
+border-radius: 5px;
+outline: none;
+z-index:1;
+${liftEffect}
+
+&:hover {
+  animation: ${glowingAnimation} 1.5s infinite;
+  color: ${props => props.hoverTextColor || '#000'};
+  background-color: ${props => props.bgColorChange || '#4A90E2'};
+}
+`;
 export const GlowingButton2 = styled.button`
   display: inline-block !important;
   width: auto !important;

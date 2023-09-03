@@ -6,6 +6,11 @@ import Skills from './Skills';
 import CardsList from"./CardsList";
 import Particle from "react-tsparticles"
 import ParticleConfig  from './ParticleConfig';
+import {Header,TextContainer3,TextContainer2} from "./AboutPage"
+import M  from "./Modal";
+const pdfPath = process.env.PUBLIC_URL + '/1.pdf';
+import { Glowing } from './ProjectPage';
+
 
 
 import Projects from './Projects';
@@ -17,6 +22,7 @@ import { useViewportScroll, useTransform, m as motion,useAnimation } from 'frame
 import { useInView } from 'react-intersection-observer';
 import { GradientBackground, Spacer,TextMod } from './StyledComp';
 import { SlideInLeft,AnimatedText, SlideInRight, Squeeze, Pulse, DivAppear, SlideCover } from './Animations';
+import Modal from './Modal';
 
 import ArrowIcon from "./vector-3.png"
 
@@ -24,11 +30,51 @@ import { Link, Element } from 'react-scroll';
 
 // Your styled components here
 
+const ColorCircle = styled.div`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: ${props => props.color};
+  margin: 10px;
+  cursor: pointer;
+`;
+
+const ColorModal = styled.div`
+display: ${props => (props.show ? 'flex' : 'none')};  // Conditional rendering
+
+  position: absolute;
+  top: 0.5%;  // Adjust to your liking
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 10px;  // Space between circles
+`;
+const ShowModalButton = styled.button`
+position: absolute;
+
+  padding: 10px 15px;
+  top: 0.6%;  // Adjust to your liking
+  border: none;
+  left: 80%;
+
+  background-color: #E8FFCE;
+  color: #00DFA2;
+  cursor: pointer;
+  border-radius: 6px;
+  outline: none;
+  transition: 0.3s;
+    align-self: flex-start;  // This line will prevent the button from stretching
+
+
+  &:hover {
+    background-color: #C3EDC0;
+  }
+`;
 
 
 
 const HomePage = ({ref1, ref2, ref3, ref4}) =>{
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [scrollDirection, setScrollDirection] = useState(null);
   
@@ -78,6 +124,19 @@ const HomePage = ({ref1, ref2, ref3, ref4}) =>{
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
   const animation = useAnimation();
+  const colors = [
+    "#040D12",
+    "#33FF57",
+    "#5733FF",
+    "#FF33F3",
+    "#F3FF33",
+    "#33F3FF",
+    "#8E33FF",
+    "#FF8E33"
+  ]; 
+  const [bgColor, setBgColor] = useState("#FFFFFF"); // Initialize with white color or any color of your choice
+  const [showModal, setShowModal] = useState(false);
+
   const [ref, inView] = useInView({
     threshold: 0.1,
   });
@@ -101,16 +160,56 @@ const HomePage = ({ref1, ref2, ref3, ref4}) =>{
 
   return (
     <HomePageContainer>
-          
+          <M show={isModalOpen} onClose={() => setIsModalOpen(false)}>
+<embed src={pdfPath} type="application/pdf" width="1400px" height="1000px" />
+</M>
       
-      <GradientBackground startColor="#040D12" endColor="#040D12" direction="to bottom">
+      <GradientBackground startColor= "#040D12" endColor= "#040D12" direction="to bottom">
+      <ShowModalButton onClick={() => setShowModal(true)}>
+        Change Background Color
+      </ShowModalButton>
+
+      <ColorModal show={showModal}>
+        {colors.map(color => (
+          <ColorCircle 
+            key={color}
+            color={color}
+            onClick={() => {
+              setBgColor(color);
+              setShowModal(false);  // Hide the modal after selecting a color
+            }}
+          />
+        ))}
+      </ColorModal>
 
       <Fade direction="bottom" top opacity={scrollDirection === 'down' ? 0 : 1} ref={topRef} />
 
      
-       
+      <Header color="#B8F1B0">
+            <TextContainer3>     
+                         <TextMod font="Pacifico" weight="800" size="38px" color="#345B63" lineHeight="1.8" spacing="3.8"> Saad Katar </TextMod>
+                         <TextMod font="Great Vibes" weight="700" size="28px" color="#345B63" lineHeight="1.8" spacing="2.6"> Software Engineer</TextMod>
+                       
+
+   </TextContainer3>
+       <TextContainer3>
+       <TextContainer2><GlowsText color="#245953" >LinkedIn:  </GlowsText>  <TextMod font="Roboto Slab" weight="500" size="15px" color="#345B63" lineHeight="1.8"spacing="2">.https://www.linkedin.com/in/saad-katar-b72864218/ </TextMod>
+</TextContainer2>
+
+<TextContainer2><GlowsText color="#245953" >Gmail:</GlowsText> <TextMod font="Roboto Slab" weight="500" size="15px" color="#345B63" lineHeight="1.8" spacing="2">   Katarsaad@gmail.com </TextMod>
+</TextContainer2>
+
+<TextContainer2><GlowsText color="#245953" >GitHub:</GlowsText> <TextMod font="Roboto Slab" weight="500" size="15px" color="#345B63" lineHeight="1.8" spacing="2">   https://github.com/KatarSaad </TextMod>
+</TextContainer2>
+
+
+       </TextContainer3>
+          <Glowing  onClick={() => setIsModalOpen(true)} bgColor="#00DFA2" bgColorChange="E8FFCE" TextColor="#E8FFCE" hoverTextColor="00DFA2">
+  CV
+</Glowing>
+   
+       </Header>
      
-        <Spacer size="30px"/>
         <SlideInLeft>
       
      
@@ -212,6 +311,7 @@ const HomePageContainer = styled.div`
     width: 3px; // Width of the vertical line
     background-color: #00DFA2; // Color of the vertical line, change it as required
     animation: ${glowingAnimation} 1.5s infinite;
+    z-index:1;
     
   }
 `;
@@ -230,35 +330,6 @@ const Fade = styled.div`
   );
   transition: opacity 0.5s ease;
   opacity: ${props => props.opacity};
-`;
-
-const Header = styled.header`
-  position: sticky;
-  top: 0;
-  margin-top: 5px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 1rem 0;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(5px);
-  z-index: 100;
-  border-radius: 10px;
-  nav {
-    display: flex;
-    justify-content: space-between;
-    width: 50%;
-  }
-  a {
-    color: black;
-    text-decoration: none;
-    font-size: 1.5em;
-    letter-spacing: 2px;
-    transition: color 0.3s;
-    &:hover {
-      color: #3498db;
-    }
-  }
 `;
 
 const slideInLeft = keyframes`

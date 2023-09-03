@@ -87,15 +87,24 @@ const   Sidebar = (props) => {
 
       <SocialMediaContainer>
     
-      <GlowingButton2 bgColor="#C3EDC0" bgColorChange="E8FFCE" TextColor="#E8FFCE" hoverTextColor="00DFA2">
-         <SocialMediaLogo src={git} alt="GitHub Logo"/></GlowingButton2>
+      <a href="https://github.com/KatarSaad" target="_blank" rel="noopener noreferrer">
+    <GlowingButton2 bgColor="#C3EDC0" bgColorChange="E8FFCE" TextColor="#E8FFCE" hoverTextColor="00DFA2">
+        <SocialMediaLogo src={git} alt="GitHub Logo"/>
+    </GlowingButton2>
+</a>
 
-         <GlowingButton2 bgColor="#C3EDC0" bgColorChange="E8FFCE" TextColor="#E8FFCE" hoverTextColor="00DFA2">
-         <SocialMediaLogo src={linkedIn} alt="linkedin Logo"/></GlowingButton2>
+<a href="https://www.linkedin.com/in/saad-katar-b72864218/" target="_blank" rel="noopener noreferrer">
+    <GlowingButton2 bgColor="#C3EDC0" bgColorChange="E8FFCE" TextColor="#E8FFCE" hoverTextColor="00DFA2">
+        <SocialMediaLogo src={linkedIn} alt="linkedin Logo"/>
+    </GlowingButton2>
+</a>
 
+<a href="mailto:Katarsaad@gmail.com" target="_blank" rel="noopener noreferrer">
+    <GlowingButton2 bgColor="#C3EDC0" bgColorChange="E8FFCE" TextColor="#E8FFCE" hoverTextColor="00DFA2">
+        <SocialMediaLogo src={google} alt="Gmail Logo"/>
+    </GlowingButton2>
+</a>
 
-         <GlowingButton2 bgColor="#C3EDC0" bgColorChange="E8FFCE" TextColor="#E8FFCE" hoverTextColor="00DFA2">
-         <SocialMediaLogo src={google} alt="GitHub Logo"/></GlowingButton2>
   {/* ... any other logos */}
   {/* ... any other logos */}
 </SocialMediaContainer>
@@ -334,7 +343,7 @@ const SidebarContainer = styled.div`
       width: 80px;
       min-width:80px;
     }
-
+  z-index:1;
 
   
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); // Shadow for elevation
@@ -403,7 +412,7 @@ const StyledLink = styled(Link)`
 const SocialMediaContainer = styled.div`
   display: flex;
   
-  margin-top:50px;
+  margin-top:150px;
   padding-left:30%;
   flex-direction: column;
   width: 100%; // Set a fixed width temporarily to ensure logos fit inside

@@ -34,7 +34,7 @@ const ModalContent = styled.div`
   box-shadow: 0 0 15px 5px #fff9; /* This gives the glowing effect */
 `;
 
-export const Modal = ({ show, onClose, children }) => {
+ const Modal = ({ show, onClose, children }) => {
   return (
     <ModalBackdrop show={show} onClick={onClose}>
       <ModalContent onClick={(e) => e.stopPropagation()}>
@@ -43,3 +43,5 @@ export const Modal = ({ show, onClose, children }) => {
     </ModalBackdrop>
   );
 };
+
+export default Modal;

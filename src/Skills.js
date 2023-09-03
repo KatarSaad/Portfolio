@@ -23,7 +23,7 @@ const upDownAnimation = keyframes`
   50% { transform: translateY(-10px); }
   100% { transform: translateY(0); }
 `;
-const glowingAnimation2 = keyframes`
+ export const glowingAnimation2 = keyframes`
 0% {
   box-shadow: 0 0 1px #00DFA2;
 }
@@ -42,7 +42,13 @@ const SkillsContainer = styled.div`
   padding-left:50px;
   padding-right:100px;
 
-  
+  @media (max-width: 768px) {
+    height: auto; // Dynamic height based on content for mobile
+    padding-left:5px;
+    padding-right:5px;
+
+
+  }
 
 
   overflow-y: auto;
@@ -91,12 +97,11 @@ const Wrapper = styled.div`
     bottom: 0; // This sets the horizontal line at the bottom
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 708px) {
     height: auto; // Dynamic height based on content for mobile
+    padding-top:50px;
 
-    &::after, &::before {
-      left: 10%; // Adjust horizontal lines for mobile
-      right: 10%; 
+ 
     } 
   }
 `;
@@ -269,7 +274,9 @@ const ImageList = styled.div`
     flex-direction: row; // default value, added for clarity
     justify-content: space-between;
     flex-wrap: wrap; // this will wrap items to the next line when they run out of space
-`;
+
+
+    `;
 
 const StyledImage = styled.img`
     width: 100px;
@@ -278,10 +285,12 @@ const StyledImage = styled.img`
     margin-right: 70px; // This ensures there's a 20px space between images
      
   @media (max-width: 768px) {
-    width: 50px; // Smaller images on mobile
-    height: 50px;
-    margin: 10px;
-    margin-right: 0px;
+    width: 40px; // Smaller images on mobile
+    height: 40px;
+    margin-right: 5px;
+    margin-left: 5px;
+
+    h
   }
 
 `;

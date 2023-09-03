@@ -10,6 +10,28 @@ export const useScroll = () => {
   return useContext(ScrollContext);
 };
 
+
+const VideoBackground = styled.div`
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -1;
+`;
+
+const StyledVideo = styled.video`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+`;
+
 const MainContainer = styled.div`
   display: flex;
   padding:0;

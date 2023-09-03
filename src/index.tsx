@@ -11,6 +11,8 @@ import LineTester from "./LineTester";
 import FonTest from "./FonTest";
 import Gradients from "./Gradients";
 import { BrowserRouter as Router, Route,Routes  } from 'react-router-dom';
+import Shapes from "./Shapes"
+import AboutPage  from './AboutPage';
 
 
 const rootElement = document.getElementById('root');

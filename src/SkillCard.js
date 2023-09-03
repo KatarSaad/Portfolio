@@ -69,6 +69,8 @@ const Logo = styled.img`
 
 const Header = styled.div`
   text-align: center;
+  font-family: 'Cutive Mono', monospace;
+
   color: #E3FCBF;
   margin-bottom: 5px;
   border-bottom: 3px solid #5C8374;
@@ -77,10 +79,12 @@ const Header = styled.div`
 
 const Title = styled.h1`
   margin: 10px 0;
+  font-family: 'Cutive Mono', monospace;
+
   color: #E3FCBF;
   font-size: 1.5rem; // Adjust for better mobile readability
 
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
     font-size: 1rem;
     margin: 5px 0; // Reduce spacing for mobile
 
@@ -89,12 +93,14 @@ const Title = styled.h1`
 
 const SkillTag = styled.span`
   background-color: #00DFA2;
+  font-family: 'Cutive Mono';
+
   padding: 5px 10px;
   border-radius: 3px;
   margin-right: 15px;
   font-size: 1rem;
 
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
     font-size: 0.8rem; // Smaller font for mobile
     margin-right: 10px; // Slight reduction for mobile
 
@@ -103,11 +109,12 @@ const SkillTag = styled.span`
 
 const Description = styled.p`
   color: #FBFFDC;
+  
   font-family: "Roboto Slab";
-  font-weight: 800; // Corrected 'weight' to 'font-weight'
+  font-weight: 600; // Corrected 'weight' to 'font-weight'
   font-size: 1.2rem;
 
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
     font-size: 0.8rem; // Slight size adjustment for better readability
   }
 `;

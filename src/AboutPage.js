@@ -183,13 +183,13 @@ const spacerv = styled.div`
 
   export const Header = styled.div`
   background: ${(props) => props.color || '#2C3333'};
-
-  height:200px;
+  padding-top:50px;
+  height:250px;
   margin-top:-30px;
   margin-right:0px;
   box-sizing: border-box;
   @media (max-width: 700px) {
-    height: 150px;
+    height: 250px;
 
   }
   &::before, &::after {

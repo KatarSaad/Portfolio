@@ -6,6 +6,8 @@ import { GlowingButton} from "./ProjectPage"
 import { SlideCover } from './Animations';
 import Modal from './Modal'
 const pdfPath = process.env.PUBLIC_URL + '/1.pdf';
+import { useNavigate } from 'react-router-dom';
+
 
 
 const fadeIn = keyframes`
@@ -46,9 +48,9 @@ const AboutContainer = styled.div`
   position: relative; /* <-- Add this line */
   z-index: 1;
   @media (max-width: 768px) {
-    width: 100%; // Take the full width on mobile
+    width: 90%; // Take the full width on mobile
     margin-left: 50px; // No left margin on mobile
-    padding: 0.5rem; // Reduced padding on mobile
+
   }
 
   margin-top: 0;
@@ -96,6 +98,7 @@ const AboutContainer = styled.div`
 const FloatingWrapper = styled.div`
   position: relative;  // This is to contextually position the ProfileImage
   display: flex;
+  margin-left:50px;
   justify-content: center;  // To center the ProfileImage horizontally
   align-items: center;     // To center the ProfileImage vertically
   width: 30%;  // Adjust this width as necessary
@@ -187,7 +190,7 @@ const TextMod = styled.div`
   letter-spacing: ${props => props.spacing || 'normal'};
   line-height: ${props => props.lineHeight || 'normal'};
    
-  @media (max-width: 600px) {
+  @media (max-width: 780px) {
     font-size: calc(${props => props.size || '1rem'} * 0.7); // Reduce font size to 70% of the input size on screens <= 600px
   }
 `;
@@ -195,6 +198,8 @@ const TextMod = styled.div`
 
 const About = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
+
 
   return (
     <Container>
@@ -230,8 +235,14 @@ const About = () => {
   </SlideCover>
 
   <Spacer size="100px"/>
-  <GlowingButton  onClick={() => setIsModalOpen(true)} bgColor="#00DFA2" bgColorChange="E8FFCE" TextColor="#E8FFCE" hoverTextColor="00DFA2">
-  CV
+  <GlowingButton  
+  onClick={() => navigate('/About')}
+  bgColor="#00DFA2" 
+  bgColorChange="E8FFCE" 
+  TextColor="#E8FFCE" 
+  hoverTextColor="00DFA2"
+>
+  Learn More About me 
 </GlowingButton>
 </AboutContainer>
     

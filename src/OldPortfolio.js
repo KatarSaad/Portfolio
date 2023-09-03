@@ -1,7 +1,12 @@
 import React , {useState,useEffect}from 'react';
 import { Button } from '@mui/material';
+import  git from './Brands/github.png'
+
+import linkedIn from './Brands/linkedin.png'
+import google from './Brands/google.png'
 
 import About from './About';
+import { SocialMediaLogo } from './App';
 import Skills from './Skills';
 import CardsList from"./CardsList";
 import Particle from "react-tsparticles"
@@ -9,7 +14,7 @@ import ParticleConfig  from './ParticleConfig';
 import {Header,TextContainer3,TextContainer2} from "./AboutPage"
 import M  from "./Modal";
 const pdfPath = process.env.PUBLIC_URL + '/1.pdf';
-import { Glowing } from './ProjectPage';
+import { Glowing,GlowingButton2 } from './ProjectPage';
 
 
 
@@ -193,13 +198,23 @@ const HomePage = ({ref1, ref2, ref3, ref4}) =>{
 
    </TextContainer3>
        <TextContainer3>
-       <TextContainer2><GlowsText color="#245953" >LinkedIn:  </GlowsText>  <TextMod font="Roboto Slab" weight="500" size="15px" color="#345B63" lineHeight="1.8"spacing="2">.https://www.linkedin.com/in/saad-katar-b72864218/ </TextMod>
+       <TextContainer2> <a href="https://www.linkedin.com/in/saad-katar-b72864218/" target="_blank" rel="noopener noreferrer">
+    <GlowingButton2 bgColor="#C3EDC0" bgColorChange="E8FFCE" TextColor="#E8FFCE" hoverTextColor="00DFA2">
+        <SocialMediaLogo src={linkedIn} alt="linkedin Logo"/>
+    </GlowingButton2>
+</a> <TextMod font="Roboto Slab" weight="500" size="15px" color="#345B63" lineHeight="1.8"spacing="2">.https://www.linkedin.com/in/saad-katar-b72864218/ </TextMod>
 </TextContainer2>
 
-<TextContainer2><GlowsText color="#245953" >Gmail:</GlowsText> <TextMod font="Roboto Slab" weight="500" size="15px" color="#345B63" lineHeight="1.8" spacing="2">   Katarsaad@gmail.com </TextMod>
+<TextContainer2>  <GlowingButton2 bgColor="#C3EDC0" bgColorChange="E8FFCE" TextColor="#E8FFCE" hoverTextColor="00DFA2">
+        <SocialMediaLogo src={google} alt="Gmail Logo"/>
+    </GlowingButton2> <TextMod font="Roboto Slab" weight="500" size="15px" color="#345B63" lineHeight="1.8" spacing="2">   Katarsaad@gmail.com </TextMod>
 </TextContainer2>
 
-<TextContainer2><GlowsText color="#245953" >GitHub:</GlowsText> <TextMod font="Roboto Slab" weight="500" size="15px" color="#345B63" lineHeight="1.8" spacing="2">   https://github.com/KatarSaad </TextMod>
+<TextContainer2> <a href="https://github.com/KatarSaad" target="_blank" rel="noopener noreferrer">
+    <GlowingButton2 bgColor="#C3EDC0" bgColorChange="E8FFCE" TextColor="#E8FFCE" hoverTextColor="00DFA2">
+        <SocialMediaLogo src={git} alt="GitHub Logo"/>
+    </GlowingButton2>
+</a> <TextMod font="Roboto Slab" weight="500" size="15px" color="#345B63" lineHeight="1.8" spacing="2">   https://github.com/KatarSaad </TextMod>
 </TextContainer2>
 
 
@@ -257,13 +272,7 @@ const HomePage = ({ref1, ref2, ref3, ref4}) =>{
 
         <CardsList/>
 
-        <StyledElement id="contact" title=" CONTACT">
-      <img src={ArrowIcon} alt="Arrow Icon" style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', width: '40px', height: '40px' }} />
-      
-    
-</StyledElement>
-        <Contact />
-      <Fade direction="bottom" top opacity={scrollDirection === 'down' ? 0 : 1} ref={topRef} />
+
   </GradientBackground>
     </HomePageContainer>
   );

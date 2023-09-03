@@ -412,13 +412,13 @@ const StyledLink = styled(Link)`
 const SocialMediaContainer = styled.div`
   display: flex;
   
-  margin-top:150px;
+  margin-top:170px;
   padding-left:30%;
   flex-direction: column;
   width: 100%; // Set a fixed width temporarily to ensure logos fit inside
 `;
 
-const SocialMediaLogo = styled.img`
+export const SocialMediaLogo = styled.img`
   width: 20px; // Set a fixed width to visualize the logo
   height: 20px;
   margin: 0px ;

@@ -174,8 +174,8 @@ const DateText = styled.span`
 
 const BodyContent = styled.p`
 padding-bottom: 0px;
-  font-family: 'Gruppo';
-  weight:1000;
+  font-family: 'Roboto';
+  weight:800;
 color:black;
 margin-top:0px;
 padding-left:10px;

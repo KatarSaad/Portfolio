@@ -243,9 +243,11 @@ const Card = ({ image, title, text, project,skills,technologies }) => {
     <CardHeader image={image}>
         <VisitContainer>
           {/* (repeated 3 times for illustrative purposes) */}
-          <GlowingButton2 bgColor="#C3EDC0" bgColorChange="E8FFCE" TextColor="#E8FFCE" hoverTextColor="00DFA2">
-            <SocialMediaLogo src={git} alt="GitHub Logo" />
-          </GlowingButton2>
+          <a href= {project.githubLink} target="_blank" rel="noopener noreferrer">
+    <GlowingButton2 bgColor="#C3EDC0" bgColorChange="E8FFCE" TextColor="#E8FFCE" hoverTextColor="00DFA2">
+        <SocialMediaLogo src={git} alt="GitHub Logo"/>
+    </GlowingButton2>
+</a>
          
         </VisitContainer>
         <CardHeaderTitle>{title}</CardHeaderTitle>

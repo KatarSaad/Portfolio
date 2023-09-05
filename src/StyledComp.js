@@ -860,7 +860,7 @@ export const StarRating = styled.div`
 `;
 
 export const TextMod = styled.span`
-  font-size: ${props => props.size || '1rem'};
+  font-size:  calc(${props => props.size || '1rem'} * 0.8);
   color: ${props => props.color || 'black'};
   font-style: ${props => props.type || 'normal'};
   font-weight: ${props => props.weight || 'normal'};
@@ -871,11 +871,11 @@ export const TextMod = styled.span`
   line-height: ${props => props.lineHeight || 'normal'};
   
   @media (max-width: 700px) {
-    font-size: calc(${props => props.size || '1rem'} * 0.75); // Reduce font size to 70% of the input size on screens <= 600px
+    font-size: calc(${props => props.size || '1rem'} * 0.6); // Reduce font size to 70% of the input size on screens <= 600px
   }
 `;
 export const TextModP = styled.p`
-  font-size: ${props => props.size || '1rem'};
+  font-size: calc(${props => props.size || '1rem'} * 0.8);
   color: ${props => props.color || 'black'};
   font-style: ${props => props.type || 'normal'};
   font-weight: ${props => props.weight || 'normal'};
@@ -886,7 +886,7 @@ export const TextModP = styled.p`
   line-height: ${props => props.lineHeight || 'normal'};
   
   @media (max-width: 700px) {
-    font-size: calc(${props => props.size || '1rem'} * 0.75); // Reduce font size to 70% of the input size on screens <= 600px
+    font-size: calc(${props => props.size || '1rem'} * 0.6); // Reduce font size to 70% of the input size on screens <= 600px
   }
   
 `;

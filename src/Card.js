@@ -174,8 +174,8 @@ const DateText = styled.span`
 
 const BodyContent = styled.p`
 padding-bottom: 0px;
-  font-family: 'Roboto';
-  weight:800;
+  font-family: 'Gruppo';
+  font-weight:800;
 color:black;
 margin-top:0px;
 padding-left:10px;
@@ -259,7 +259,6 @@ const Card = ({ image, title, text, project,skills,technologies }) => {
         {/* 2. Title */}
 
         {/* 3. Date */}
-        <TextMod size="13px" color="grey">{new Date().toLocaleDateString()}</TextMod> 
 
         {/* 4. GlowingLine */}
         <GlowingLine width="95%" height="2px" />
@@ -269,30 +268,33 @@ const Card = ({ image, title, text, project,skills,technologies }) => {
 
         {/* 6. GlowingLine */}
         <LineTextContainer>
-      skills
+        <TextMod  size="20px" font="Gruppo" weight="1000">
+                 SKILLS
+                </TextMod>
     </LineTextContainer>
       
           {/* Skills */}
           <SkillsWrapper>
             <TagsContainer>
               {skills?.map(skill => (
-                <TextMod key={skill} size="13px" font="Gruppo" weight="1000">
-                  <SkillTag>{skill}</SkillTag>
+                <TextMod  key={skill} size="13px" font="Gruppo" weight="1000">
+                  <SkillTag  textColor="#52734D">{skill}</SkillTag>
                 </TextMod>
               ))}
             </TagsContainer>
           </SkillsWrapper>
 
           <LineTextContainer>
-      Technologies
-    </LineTextContainer>
+        <TextMod  size="20px" font="Gruppo" weight="1000">
+                 TECHNOLOGIES
+                </TextMod>    </LineTextContainer>
 
           {/* Technologies */}
           <SkillsWrapper>
             <TagsContainer>
               {technologies?.map(tech => (
-                <TextMod key={tech} size="15px" font="Gruppo" weight="1000">
-                  <SkillTag>{tech}</SkillTag>
+                <TextMod  key={tech} size="15px" font="Gruppo" weight="1000">
+                  <SkillTag  textColor="#52734D" >{tech}</SkillTag>
                 </TextMod>
               ))}
             </TagsContainer>

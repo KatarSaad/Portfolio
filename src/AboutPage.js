@@ -184,7 +184,7 @@ const spacerv = styled.div`
   export const Header = styled.div`
   background: ${(props) => props.color || '#2C3333'};
   padding-top:50px;
-  height:250px;
+  height:200px;
   margin-top:-30px;
   margin-right:0px;
   box-sizing: border-box;

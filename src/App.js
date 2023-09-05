@@ -172,9 +172,13 @@ const glowingTextAnimation = keyframes`
 
 // Glowing Text Component
 const GlowsText = styled.div`
-  font-size: 10px;
+  font-size: 7px;
   color: ${(props) => props.color || '#00ff00'};
   animation: ${glowingTextAnimation} 1.5s infinite;
+  @media (max-width: 768px) { // Tablet breakpoint
+    font-size:6px;
+   }
+
 `;
 export const LineTextContainer = styled.div`
   display: flex;
@@ -286,23 +290,30 @@ const Tooltip = styled.span`
 const Name = styled.h1`
 font-family: 'Gruppo';
 font-weight: 800;
-  font-size: 15px;
+  font-size: 10px;
   color: #122D42;
   margin-bottom: 1rem;
   margin-left: 3px;
     text-align: center;
+    @media (max-width: 768px) { // Tablet breakpoint
+      font-size:8px;
+     }
+ 
 
 `;
 
 const JobTitle = styled.h2`
   font-family: 'Gruppo',sans-serif;
-  font-size: 15px;
+  font-size: 10px;
   font-weight: 700;
 
   color: #122D42;
   margin-bottom: 2rem;
   margin-left: 3px;
     text-align: center;
+    @media (max-width: 768px) { // Tablet breakpoint
+     font-size:8px;
+    }
 
 `;
 
@@ -319,8 +330,8 @@ const SidebarContainer = styled.div`
 
   background:  #14C38E;
   height: 100%; // This ensures it covers the entire viewport height
-  width: 80px;
-  min-width:80px;
+  width: 60px;
+  min-width:60px;
   min-height:100%;
   display: flex;
   flex-direction: column;
@@ -336,8 +347,8 @@ const SidebarContainer = styled.div`
   scrollbar-width: none;
     animation: ${moveContainer} 4s infinite;
     @media (max-width: 768px) { // Tablet breakpoint
-      width: 100px;
-      min-width:100px;
+      width: 50px;
+      min-width:50px;
     }
     @media (max-width: 480px) { // Smartphone breakpoint
       width: 80px;
@@ -375,7 +386,7 @@ const WholeApp = styled.div`
 const StyledLink = styled(Link)`
   font-family: 'Orbitron', sans-serif;
   font-weight: 600;
-  font-size: 7px!important;
+  font-size: 5px!important;
   color: #444941;
   @media (max-width: 480px) {
     font-size: 13px;
@@ -408,15 +419,16 @@ const StyledLink = styled(Link)`
     width: 100%;!important
   }
 `;
-
 const SocialMediaContainer = styled.div`
-  display: flex;
-  
-  margin-top:170px;
-  padding-left:30%;
-  flex-direction: column;
-  width: 100%; // Set a fixed width temporarily to ensure logos fit inside
+display: flex;
+flex-direction: column;
+width: 100%; // Set a fixed width temporarily to ensure logos fit inside
+position: absolute; // Makes the position relative to the viewport
+bottom: 0; // Positions the container at the bottom
+left: 10px; // Aligns the container to the left edge
+margin-top: 160px; // You can adjust this if needed
 `;
+
 
 export const SocialMediaLogo = styled.img`
   width: 20px; // Set a fixed width to visualize the logo

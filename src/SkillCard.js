@@ -82,7 +82,7 @@ const Title = styled.h1`
   font-family: 'Cutive Mono', monospace;
 
   color: #E3FCBF;
-  font-size: 1.5rem; // Adjust for better mobile readability
+  font-size: 1.2rem; // Adjust for better mobile readability
 
   @media (max-width: 700px) {
     font-size: 1rem;
@@ -101,7 +101,7 @@ const SkillTag = styled.span`
   font-size: 1rem;
 
   @media (max-width: 700px) {
-    font-size: 0.8rem; // Smaller font for mobile
+    font-size: 0.6rem; // Smaller font for mobile
     margin-right: 10px; // Slight reduction for mobile
 
   }
@@ -112,7 +112,7 @@ const Description = styled.p`
   
   font-family: "Roboto Slab";
   font-weight: 600; // Corrected 'weight' to 'font-weight'
-  font-size: 1.2rem;
+  font-size: 1rem;
 
   @media (max-width: 700px) {
     font-size: 0.8rem; // Slight size adjustment for better readability

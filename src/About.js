@@ -136,10 +136,10 @@ export const GlowsText = styled.span`
   display: inline-block; // Makes sure the span acts like a block for transformations
   transform: translateZ(0);  // Enable GPU acceleration
   will-change: transform;   // Hints to the browser to use GPU acceleration
-  font-size:${(props) => props.size || '24px'};
+  font-size:  ${(props) => props.size ? `calc(${props.size} * 0.8)` : '20px'};
   color: ${(props) => props.color || '#00FFAB'};
   @media (max-width: 768px) {
-    font-size: ${(props) => props.size ? `calc(${props.size} * 0.8)` : '20px'}; // Reduced font-size on mobile
+    font-size: ${(props) => props.size ? `calc(${props.size} * 0.6)` : '20px'}; // Reduced font-size on mobile
   }
 
 `;
@@ -183,7 +183,7 @@ const ProfileImage = styled.img`
 const TextMod = styled.div`
   font-family: ${props => props.font || 'Roboto'};
   font-weight: ${props => props.weight || '400'};
-  font-size: ${props => props.size || '16px'};
+  font-size:  calc(${props => props.size || '1rem'} * 0.8);
   color: ${props => props.color || 'white'};
   text-decoration: ${props => props.decoration || 'none'};
   text-transform: ${props => props.transform || 'none'};
@@ -191,7 +191,7 @@ const TextMod = styled.div`
   line-height: ${props => props.lineHeight || 'normal'};
    
   @media (max-width: 780px) {
-    font-size: calc(${props => props.size || '1rem'} * 0.7); // Reduce font size to 70% of the input size on screens <= 600px
+    font-size: calc(${props => props.size || '1rem'} * 0.6); // Reduce font size to 70% of the input size on screens <= 600px
   }
 `;
 
@@ -219,7 +219,7 @@ const About = () => {
     Dedicated to 
     <GlowsText>designing</GlowsText>, 
     <GlowsText>developing</GlowsText>, modern software solutions with a focus on continuous improvement and learning. I'm skilled in frontend tools like 
-    <GlowsText as="span" color="#C3EDC0" size="27px">React</GlowsText> and 
+    <GlowsText  color="#C3EDC0" size="27px">React</GlowsText> and 
     <GlowsText as="span" color="#C3EDC0" size="27px">JavaScript</GlowsText>, as well as backend technologies such as&nbsp;
     <GlowsText as="span" color="#C3EDC0" size="27px">ASP.NET</GlowsText>&nbsp;and&nbsp;
     <GlowsText as="span" color="#C3EDC0" size="27px">C#</GlowsText>.&nbsp;I 

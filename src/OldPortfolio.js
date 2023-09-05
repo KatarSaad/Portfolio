@@ -202,19 +202,19 @@ const HomePage = ({ref1, ref2, ref3, ref4}) =>{
     <GlowingButton2 bgColor="#C3EDC0" bgColorChange="E8FFCE" TextColor="#E8FFCE" hoverTextColor="00DFA2">
         <SocialMediaLogo src={linkedIn} alt="linkedin Logo"/>
     </GlowingButton2>
-</a> <TextMod font="Roboto Slab" weight="500" size="15px" color="#345B63" lineHeight="1.8"spacing="2">.https://www.linkedin.com/in/saad-katar-b72864218/ </TextMod>
+</a> <TextMod font="Roboto Slab" weight="00" size="13px" color="#345B63" lineHeight="1.8"spacing="2">.https://www.linkedin.com/in/saad-katar-b72864218/ </TextMod>
 </TextContainer2>
 
 <TextContainer2>  <GlowingButton2 bgColor="#C3EDC0" bgColorChange="E8FFCE" TextColor="#E8FFCE" hoverTextColor="00DFA2">
         <SocialMediaLogo src={google} alt="Gmail Logo"/>
-    </GlowingButton2> <TextMod font="Roboto Slab" weight="500" size="15px" color="#345B63" lineHeight="1.8" spacing="2">   Katarsaad@gmail.com </TextMod>
+    </GlowingButton2> <TextMod font="Roboto Slab" weight="500" size="13px" color="#345B63" lineHeight="1.8" spacing="2">   Katarsaad@gmail.com </TextMod>
 </TextContainer2>
 
 <TextContainer2> <a href="https://github.com/KatarSaad" target="_blank" rel="noopener noreferrer">
     <GlowingButton2 bgColor="#C3EDC0" bgColorChange="E8FFCE" TextColor="#E8FFCE" hoverTextColor="00DFA2">
         <SocialMediaLogo src={git} alt="GitHub Logo"/>
     </GlowingButton2>
-</a> <TextMod font="Roboto Slab" weight="500" size="15px" color="#345B63" lineHeight="1.8" spacing="2">   https://github.com/KatarSaad </TextMod>
+</a> <TextMod font="Roboto Slab" weight="500" size="13px" color="#345B63" lineHeight="1.8" spacing="2">   https://github.com/KatarSaad </TextMod>
 </TextContainer2>
 
 

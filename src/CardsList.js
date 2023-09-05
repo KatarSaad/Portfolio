@@ -30,7 +30,7 @@ const dummyData =[{
   demoLink: "http://youtube.com/watch?v=demo",
   description: " Architected and implemented an advanced Intranet solution, enhancing productivity and achieving time savings. The system features a chat service, bug/task management system, and intuitive interfaces for blogs, articles, and news. Demonstrated proficiency in data extraction & reporting from Sage ERP. Key Skills: ASP.NET, React, Git, Agile Scrum, Domain-driven Design, JWT Authentication, Authorization, Software ArchitectureSof",
   skills: ["ASP.NET", "React", "Git", "Agile Scrum", "Domain-driven Design", "JWT Authentication", "Authorization", "Software Architecture", "API Integration", "ERP", "Real-time Communication"],
-  technologies: ["ASP.NET", "React", "Styled Components", "C#"] 
+  technologies: ["ASP.NET", "React", "Styled Components", "C#","Ant Design","React Query","SignalR"] 
 },
 {
   id: 2,
@@ -42,8 +42,8 @@ const dummyData =[{
   githubLink: "https://github.com/KatarSaad/Advanced-CVProjects",
   demoLink: "http://youtube.com/watch?v=demo",
   description: "Developed a system that uses advanced algorithms to count and understand the pattern of user's eye blinks. The system is proficient in providing insights and has potential applications in health and fatigue management.",
-  skills: ["Biometrics", "Eye Tracking", "Data Analysis"],
-  technologies: []
+  skills: ["Face Mesh", "Eye Tracking", "Data Analysis","Physics Concepts"],
+  technologies: ["Python","TensorFlow","OpenCv","MediaPipe"]
 },
 {
   id: 3,
@@ -55,8 +55,8 @@ const dummyData =[{
   githubLink: "https://github.com/KatarSaad/EmotionDetection",
   demoLink: "http://youtube.com/watch?v=demo",
   description: "Crafted an application that employs sophisticated algorithms to pinpoint nine distinct emotions. This project underscores a strong command over machine learning algorithms and their potential applications in real-world scenarios.",
-  skills: ["Machine Learning", "Emotion Analysis", "Data Processing"],
-  technologies: ["TensorFlow", "Python"]
+  skills: ["Machine Learning", "Emotion Analysis", "Data Processing", "Computer Vision","Model Training"],
+  technologies: ["TensorFlow", "Python","OpenCV"]
 },
 {
   id: 4,
@@ -68,8 +68,8 @@ const dummyData =[{
   githubLink: "https://github.com/KatarSaad/Advanced-CVProjects",
   demoLink: "http://youtube.com/watch?v=demo",
   description: "Developed a fitness application using Pose Estimation, which accurately tracks exercises like curls and push-ups. It not only counts repetitions but also provides feedback on posture and form, ensuring effective workouts.",
-  skills: ["Pose Estimation", "AI", "Fitness Tech"],
-  technologies: ["Python", "TensorFlow"]
+  skills: ["Pose Estimation", "AI", "Computer Vision","Physics Concepts"],
+  technologies: ["Python", "TensorFlow","MediaPipe","OpenCV"]
 },
 {
   id: 5,
@@ -81,8 +81,8 @@ const dummyData =[{
   githubLink: "https://github.com/KatarSaad/Advanced-CVProjects",
   demoLink: "http://youtube.com/watch?v=demo",
   description: "Unveiling a revolutionary approach to digital artistry and system control, this application is solely operated through hand gestures. It not only allows users to paint but also manage system volume, offering an immersive and futuristic user experience.",
-  skills: ["Gesture Recognition", "UI/UX", "Digital Art"],
-  technologies: ["Python", "OpenCV"]
+  skills: ["Gesture Recognition", "UI/UX","Computer Vision", "Software Development", "User Experience","Physics Concepts" ],
+  technologies: ["Python", "OpenCV","MediaPipe"]
 },
 
 
@@ -97,7 +97,7 @@ const dummyData =[{
   demoLink: "http://youtube.com/watch?v=demo",
   description: "Engineered an Airbnb clone from the ground up, carefully replicating the platform's diverse functionalities. This project is a testament to my adeptness in understanding and replicating intricate web platforms, offering users a near-identical experience.",
   skills: ["Web Development", "Database Management", "UI/UX Design"],
-  technologies: ["React", "Node.js", "MongoDB"]
+  technologies: ["React", "Redux", "CSS","JSX","Html"]
 },
 {
   id: 7,
@@ -110,7 +110,7 @@ const dummyData =[{
   demoLink: "http://youtube.com/watch?v=demo",
   description: "Constructed an interactive Todo application to streamline task management. With an emphasis on user experience, the application offers features like drag-and-drop organization, task prioritization, and intuitive UI animations.",
   skills: ["Front-end Development", "Task Management", "User Experience"],
-  technologies: ["React", "Redux", "SCSS"]
+  technologies: ["React", "Redux", "CSS"]
 },
 {
   id: 8,
@@ -122,7 +122,7 @@ const dummyData =[{
   githubLink: "http://github.com/sample",
   demoLink: "http://youtube.com/watch?v=demo",
   description: "Designed a powerful CRUD application using SpringBoot for seamless product management. Users can effortlessly add, delete, update, and categorize products, all while enjoying a responsive and user-friendly interface.",
-  skills: ["Back-end Development", "Database Operations", "CRUD Operations"],
+  skills: ["Back-end Development", "Database Operations", "CRUD Operations","OOP","Clean Architecture"],
   technologies: ["SpringBoot", "Java", "Hibernate"]
 },{
   id: 9,
@@ -134,8 +134,8 @@ const dummyData =[{
   githubLink: "https://github.com/KatarSaad/Advanced-CVProjects",
   demoLink: "http://youtube.com/watch?v=demo",
   description: "Pioneered a new way to interact with your computer. This project utilizes cutting-edge computer vision techniques to detect and interpret hand gestures, translating them into movements and actions for the computer's cursor, offering a seamless and futuristic user experience.",
-  skills: ["Computer Vision", "Software Development", "User Experience"],
-  technologies: ["Python", "OpenCV"]
+  skills: ["Computer Vision", "Software Development", "User Experience","Physics Concepts"],
+  technologies: ["Python", "OpenCV","MediaPipe"]
 },
 {
   id: 10,
@@ -147,8 +147,8 @@ const dummyData =[{
   githubLink: "https://github.com/KatarSaad/FlutterMediaPipeProject",
   demoLink: "http://youtube.com/watch?v=demo",
   description: "Designed an application to aid early diagnosis of Autism and anxiety in children. Through machine learning, the app studies behavioral patterns to provide insightful feedback, all presented in a child-friendly interface crafted using Flutter.",
-  skills: ["Machine Learning", "Mobile App Development", "Medical Technology"],
-  technologies: ["Flutter", "TensorFlow", "Python"]
+  skills: ["Machine Learning", "Mobile App Development", "Medical Technology","Api Mastery","Physics Concepts",],
+  technologies: ["Flutter", "TensorFlow", "Python","FireBase", "OpenCV", "MediaPipe","Flask"]
 },
 {
   id: 11,
@@ -160,8 +160,8 @@ const dummyData =[{
   githubLink: "https://github.com/KatarSaad/FlutterHospitalAiApp",
   demoLink: "http://youtube.com/watch?v=demo",
   description: "This project envisions a safer, more controlled environment for institutions. Users get QR codes based on their health data, which also allows the system to predict potential health risks. The QR codes serve as access passes, ensuring only healthy individuals gain entry while simultaneously providing them with valuable health insights.",
-  skills: ["HealthTech", "Access Control", "Predictive Analytics"],
-  technologies: ["Flutter", "Python", "ML"]
+  skills: ["Hybrid Mobile Dev", "Access Control", "Predictive Analytics", "Data Handling",],
+  technologies: ["Flutter", "Python", "ML","ML Algorithms", "GetX","TensorFlow","FireBase","Dart"]
 }
 ];
 function App() {

@@ -71,7 +71,7 @@ const SkillsContainer = styled.div`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 1180px;
+  height: 1280px;
   align-items: center;  // This centers its children horizontally
   position: relative;
   animation: ${upDownAnimation} 2s infinite;

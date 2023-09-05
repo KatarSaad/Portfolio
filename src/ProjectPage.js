@@ -51,7 +51,7 @@ export const GlowingButton = styled.button`
   border: 2px solid #FFF;
   background-color: ${props => props.bgColor || '#4A90E2'};
   color: ${props => props.TextColor || '#000'};
-  font-size: 1.5rem;
+  font-size: 1rem;
   cursor: pointer;
   border-radius: 5px;
   outline: none;

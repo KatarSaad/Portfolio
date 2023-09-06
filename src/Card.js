@@ -50,7 +50,7 @@ export const CardContainer = styled.article`
   &::before, &::after {
     content: "";
     position: absolute;
-    z-index: 1;
+    z-index: 4;
     transition: all 0.5s ease;
     background: #00FFAB;
     animation: ${borderGlowAnimation} 1.5s infinite alternate;

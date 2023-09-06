@@ -387,7 +387,7 @@ const StyledLink = styled(Link)`
   font-family: 'Orbitron', sans-serif;
   font-weight: 600;
   font-size: 5px!important;
-  color: #444941;
+  color: black;
   @media (max-width: 480px) {
     font-size: 13px;
     margin-bottom: 15px;

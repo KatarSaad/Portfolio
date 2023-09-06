@@ -320,7 +320,7 @@ const HomePageContainer = styled.div`
     width: 3px; // Width of the vertical line
     background-color: #00DFA2; // Color of the vertical line, change it as required
     animation: ${glowingAnimation} 1.5s infinite;
-    z-index:1;
+    z-index:4;
     
   }
 `;

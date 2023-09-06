@@ -871,7 +871,7 @@ export const TextMod = styled.span`
   line-height: ${props => props.lineHeight || 'normal'};
   
   @media (max-width: 700px) {
-    font-size: calc(${props => props.size || '1rem'} * 0.6); // Reduce font size to 70% of the input size on screens <= 600px
+    font-size: calc(${props => props.size || '1rem'} * 0.5); // Reduce font size to 70% of the input size on screens <= 600px
   }
 `;
 export const TextModP = styled.p`
@@ -886,7 +886,7 @@ export const TextModP = styled.p`
   line-height: ${props => props.lineHeight || 'normal'};
   
   @media (max-width: 700px) {
-    font-size: calc(${props => props.size || '1rem'} * 0.6); // Reduce font size to 70% of the input size on screens <= 600px
+    font-size: calc(${props => props.size || '1rem'} * 0.5); // Reduce font size to 70% of the input size on screens <= 600px
   }
   
 `;

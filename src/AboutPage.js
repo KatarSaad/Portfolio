@@ -30,8 +30,8 @@ const TextContainer1 = styled.div`
   color: grey;
   box-sizing: border-box;
   @media (max-width: 700px) {
-    padding-left: 20px;
-    padding-right:20px;
+    padding-left: 5px;
+    padding-right:5px;
 
   }
 
@@ -51,8 +51,8 @@ export const TextContainer2 = styled.div`
   color:grey;
   box-sizing: border-box;
   @media (max-width: 700px) {
-    padding-left: 20px;
-    padding-right:20px;
+    padding-left: 5px;
+    padding-right:5px;
 
   }
 
@@ -80,8 +80,8 @@ const Image1 = styled.img`
 
   box-sizing: border-box;
   @media (max-width: 700px) {
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 250px;
+    max-height: 250px;
   }
 
 `;
@@ -90,11 +90,12 @@ const Image2 = styled.img`
   height: 100%;
   max-width:600px;
   width:auto;
-  max-height:800px;
+
+  max-height:700px;
 
   @media (max-width: 700px) {
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 250px;
+    max-height: 250px;
   }
   width: 100%;
   box-sizing: border-box;
@@ -104,20 +105,20 @@ const Image2 = styled.img`
 `;
 const Container = styled.div`
   display: flex;
-
+  min-height:700px;
   align-items: center;
-  min-height: 800px;
-  margin-left:150px ;
-  margin-right:150px ;
-  @media (max-width: 700px) {
-    margin-left:0px!important ;
-    margin-right:0px!important ;  }
-    box-sizing: border-box; // Adding this
-    overflow: hidden; // If children exceed the container, they won't cause overflow
-  
+  margin-left: 150px;
+  margin-right: 150px;
+  box-sizing: border-box;
+  overflow: hidden; 
 
-  
-  position: relative; // Required to use absolute positioning within
+  @media (max-width: 700px) {
+    margin-left: 0px!important;
+    margin-right: 0px!important;
+    min-height:300px;
+  }
+
+  position: relative;
 `;
 
 const Container1 = styled.div`
